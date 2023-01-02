@@ -1,14 +1,10 @@
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import HomeScreen from './src/Screens/HomeScreen';
 
-const navigator = createStackNavigator({
+
+const tabNavigator = createBottomTabNavigator({
   Home: HomeScreen,
-}, {
-  initialRouteName: 'Home',
-  defaultNavigationOptions: {
-    title: 'We got some keys'
-  }
 });
 
-export default createAppContainer(navigator);
+export default createAppContainer(tabNavigator);
