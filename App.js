@@ -14,6 +14,8 @@ const tabNavigator = createBottomTabNavigator({
   Keys: {
     screen: KeyScreen,
   },
+} , {
+  initialRouteName: 'Home'
 });
 
 export default createAppContainer(tabNavigator);
