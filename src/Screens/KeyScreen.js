@@ -1,18 +1,19 @@
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import React from 'react';
+import { KeyData } from '../KeyData/Data'
 
 const KeyScreen = () => {
     return (
             <SafeAreaView style={styles.container}>
                 <Text style={styles.header}>Select A Key To Find Out More!</Text>
-                <Text style={styles.letterStyle}>A</Text>
-                <Text style={styles.letterStyle}>B</Text>
-                <Text style={styles.letterStyle}>C</Text>
-                <Text style={styles.letterStyle}>D</Text>
-                <Text style={styles.letterStyle}>E</Text>
-                <Text style={styles.letterStyle}>F</Text>
-                <Text style={styles.letterStyle}>G</Text>
+                <FlatList
+                  data={ KeyData }
+                  keyExtractor={(item) => item.id}
+                  renderItem={({ item }) => (
+                    <Text style={styles.letterStyle}>{item.title}</Text>
+                  )} 
+                />
             </SafeAreaView>
     )
 };
