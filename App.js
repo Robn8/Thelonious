@@ -8,6 +8,8 @@ import TheoryScreen from './src/Screens/TheoryScreen';
 import SelectScreen from './src/Screens/SelectScreen';
 import ShowKeyScreen from './src/Screens/ShowKeyScreen';
 
+import { withNavigation } from '@react-navigation/compat';
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
