@@ -2,14 +2,16 @@ import { Text, View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import React from 'react';
 
-const KeyScreen = () => {
+const ShowKeyScreen = () => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <Text>Key Screen</Text>
+            <Text>Now were learning!</Text>
+            <Text>What the key means:</Text>
+            <Text>What does the Dominant chord of the scale do:</Text>
         </SafeAreaView>
     )
 };
 
 const styles = StyleSheet.create({});
 
-export default KeyScreen;
+export default ShowKeyScreen;

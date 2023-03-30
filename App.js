@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/Screens/HomeScreen';
 import TheoryScreen from './src/Screens/TheoryScreen';
 import SelectScreen from './src/Screens/SelectScreen';
-import KeyScreen from './src/Screens/KeyScreen';
+import ShowKeyScreen from './src/Screens/ShowKeyScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -26,7 +26,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator >
         <Stack.Screen name="Main" component={MainTabs} />
-        <Stack.Screen name="KeyScreen" component={KeyScreen} />
+        <Stack.Screen name="ShowKeyScreen" component={ShowKeyScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
