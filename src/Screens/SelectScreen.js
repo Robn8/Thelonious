@@ -1,29 +1,39 @@
-/*
+import { Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-navigation';
+import React from 'react';
+import { KeyData } from '../Data/KeyData'
 
-const aMajor = {
-    name: 'A Major',
-    keySignature: 'F#',
-    chords: ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'],
-    scale: ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#', 'A'],
-    relativeMinor: 'F# Minor'
-  };
+const SelectScreen = ({ navigation }) => {
+    return (
+            <SafeAreaView style={styles.container}>
+                <Text style={styles.header}>Select A Key!</Text>
+                <FlatList
+                  data={ KeyData }
+                  keyExtractor={(item) => item.id}
+                  renderItem={({ item }) => (
+                    <TouchableOpacity onPress={() => navigation.navigate('KeyScreen', { id: item.id })}>
+                      <Text style={styles.letterStyle}>{item.title}</Text>
+                    </TouchableOpacity>
+                  )} 
+                />
+            </SafeAreaView>
+    )
+};
 
-const MongoClient = require('mongodb').MongoClient;
-
-const url = 'mongodb://localhost:27017';
-const dbName = 'mydatabase';
-
-MongoClient.connect(url, { useNewUrlParser: true }, function(err, client) {
-  if (err) throw err;
-  console.log("Connected successfully to server");
-
-  const db = client.db(dbName);
-
-  const collection = db.collection('documents');
-  collection.insertOne(aMajor, function(err, result) {
-    console.log("Inserted object into the collection");
-    client.close();
-  });
+const styles = StyleSheet.create({
+    letterStyle: {
+        fontSize: 64,
+        marginBottom: 5
+    },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    header: {
+        marginBottom: 25,
+        fontSize: 24,
+    }
 });
 
-*/
+export default SelectScreen;
