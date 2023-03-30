@@ -18,7 +18,7 @@ function MainTabs() {
     <Tab.Navigator>
       <Tab.Screen name="Theory" component={TheoryScreen} />
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Select" component={SelectScreen} options={{ tabBarVisible: false }} />
+      <Tab.Screen name="Select" component={SelectScreen} />
     </Tab.Navigator>
   );
 }
@@ -27,7 +27,7 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator >
-        <Stack.Screen name="Main" component={MainTabs} />
+        <Stack.Screen name="Thelonious" component={MainTabs} />
         <Stack.Screen name="ShowKeyScreen" component={ShowKeyScreen} />
       </Stack.Navigator>
     </NavigationContainer>
