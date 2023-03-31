@@ -9,11 +9,12 @@ const ShowKeyScreen = ({ route }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text>Show Key Details Screen</Text>
             <Text>{item.title}</Text>
-            <Text>Chords in This Key: {item.chords}</Text>
+            <Text>Diatonic Chords In The Key of {item.title}: {item.chords}</Text>
             <Text>Number of Sharps in {item.title}: {item.sharps}</Text>
             <Text>Number of Flats in {item.title}: {item.flats}</Text>
+            <Text>Relative Minor of {item.title}: {item.relativeMinor}</Text>
+            <Text>Dominant Chord of {item.title}: {item.dominant}</Text>
         </SafeAreaView>
     )
 };
