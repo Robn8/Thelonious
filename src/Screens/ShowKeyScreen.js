@@ -1,7 +1,9 @@
 import { Text, View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import React from 'react';
+
 import { KeyData } from '../Data/KeyData';
+import SharpBox from '../Components/SharpBox';
 
 const ShowKeyScreen = ({ route }) => {
     const { id } = route.params;
@@ -12,8 +14,7 @@ const ShowKeyScreen = ({ route }) => {
             <Text style={styles.keyStyle}>{item.title}</Text>
             <Text>Diatonic Chords In The Key of {item.title}:</Text>
             <Text style={styles.chordStyle}>{item.chords}</Text>
-            <Text>Number of Sharps in {item.title}: {item.sharps}</Text>
-            <Text>Number of Flats in {item.title}: {item.flats}</Text>
+            <SharpBox sharps={item.sharps} flats={item.flats} title={item.title} />
             <Text>Relative Minor of {item.title}: {item.relativeMinor}</Text>
             <Text>Dominant Chord of {item.title}: {item.dominant}</Text>
         </SafeAreaView>
