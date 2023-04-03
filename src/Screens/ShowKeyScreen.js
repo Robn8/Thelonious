@@ -14,9 +14,13 @@ const ShowKeyScreen = ({ route }) => {
             <Text style={styles.keyStyle}>{item.title}</Text>
             <Text>Diatonic Chords In The Key of {item.title}:</Text>
             <Text style={styles.chordStyle}>{item.chords}</Text>
-            <SharpBox sharps={item.sharps} flats={item.flats} title={item.title} />
-            <Text>Relative Minor of {item.title}: {item.relativeMinor}</Text>
-            <Text>Dominant Chord of {item.title}: {item.dominant}</Text>
+            <SharpBox 
+             sharps={item.sharps}
+             flats={item.flats} 
+             title={item.title}
+             relative={item.relativeMinor}
+             dom={item.dominant}
+            />
         </SafeAreaView>
     )
 };

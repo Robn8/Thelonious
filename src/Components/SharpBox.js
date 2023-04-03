@@ -2,19 +2,33 @@ import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import React from 'react';
 
-const SharpBox = ({ sharps, flats, title }) => {
+import RelativeBox from './RelativeBox';
+import DomBox from './DomBox';
+
+const SharpBox = ({ sharps, flats, title, relative, dom }) => {
     return (
         <SafeAreaView>
           <View style={styles.boxContainer}>
-          {sharps !== 'None' && (
-             <Text>Sharps: {sharps}</Text>
-            )}
-          {flats !== 'None' && (
-             <Text>Flats: {flats}</Text>
-            )}
-          {title === 'C' && (
-            <Text>C has no Sharps or Flats!</Text>
-          )}
+            <View style={styles.row1}>
+                {sharps !== 'None' && (
+                    <View style={styles.sharpBoxStyle}>
+                    <Text>{sharps}</Text>
+                    <Text>Sharps</Text>
+                    </View>
+                    )}
+                {flats !== 'None' && (
+                    <View style={styles.flatBoxStyle}>
+                    <Text>Flats: {flats}</Text>
+                    </View>
+                    )}
+                {title === 'C' && (
+                    <View style={styles.flatBoxStyle}>
+                    <Text>C has no Sharps or Flats!</Text>
+                    </View>
+                )}
+                <RelativeBox title={title} relative={relative} />
+            </View>
+            <DomBox title={title} dom={dom} />
           </View>
         </SafeAreaView>
     )
@@ -28,12 +42,33 @@ const styles = StyleSheet.create({
         height: 250,
         width: 250,
         borderRadius: 15,
-        alignItems: 'center'
+    },
+    row1: {
+        flexDirection: 'row',
+        borderBottomWidth: 1
     },
     sharpStyle: {
         fontSize: 20,
         paddingTop: 5
-    }
+    },
+    sharpBoxStyle: {
+        backgroundColor: 'white',
+        height: 125,
+        width: 125,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRightWidth: 1,
+        borderTopLeftRadius: 15,
+    },
+    flatBoxStyle: {
+        backgroundColor: 'white',
+        height: 125,
+        width: 125,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRightWidth: 1,
+        borderTopLeftRadius: 15,
+    },
 });
 
 export default SharpBox;
