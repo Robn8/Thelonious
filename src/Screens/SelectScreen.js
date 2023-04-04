@@ -17,12 +17,13 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#D8D8D8'
+        backgroundColor: '#402E5C'
     },
     header: {
         fontSize: 24,
         marginBottom: 5,
-        marginTop: 50
+        marginTop: 50,
+        color: 'white'
     }
 });
 

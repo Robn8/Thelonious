@@ -12,8 +12,8 @@ const SharpBox = ({ sharps, flats, title, relative, dom }) => {
             <View style={styles.row1}>
                 {sharps !== 'None' && (
                     <View style={styles.sharpBoxStyle}>
-                    <Text>{sharps}</Text>
-                    <Text>Sharps</Text>
+                        <Text style={styles.sharpStyle}>Sharps</Text>
+                        <Text style={styles.sharpNumber}>{sharps}</Text>
                     </View>
                     )}
                 {flats !== 'None' && (
@@ -48,11 +48,17 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1
     },
     sharpStyle: {
-        fontSize: 20,
-        paddingTop: 5
+        fontSize: 14,
+        color: '#660099',
+        fontFamily: 'Futura-Bold'
+    },
+    sharpNumber: {
+        fontSize: 28,
+        color: '#660099',
+        fontFamily: 'Futura-Bold'
     },
     sharpBoxStyle: {
-        backgroundColor: 'white',
+        backgroundColor: '#ffcc00',
         height: 125,
         width: 125,
         alignItems: 'center',
@@ -61,7 +67,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 15,
     },
     flatBoxStyle: {
-        backgroundColor: 'white',
+        backgroundColor: '#ffcc00',
         height: 125,
         width: 125,
         alignItems: 'center',

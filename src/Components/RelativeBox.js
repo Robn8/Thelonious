@@ -4,20 +4,31 @@ import React from 'react';
 const RelativeBox = ({ relative }) => {
     return (
           <View style={styles.boxContainer}>
-            <Text>{relative}</Text>
+            <Text style={styles.header}>Relative Minor</Text>
+            <Text style={styles.body}>{relative}</Text>
           </View>
     )
 };
 
 const styles = StyleSheet.create({
     boxContainer: {
-        backgroundColor: 'white',
-        height: 120,
-        width: 120,
+        backgroundColor: '#ffcc00',
+        height: 125,
+        width: 123,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 15
+        borderTopRightRadius: 15
     },
+    body: {
+        fontSize: 28,
+        color: '#660099',
+        fontFamily: 'Futura-Bold',
+    },
+    header: {
+        fontSize: 14,
+        color: '#660099',
+        fontFamily: 'Futura-Bold',
+    }
 });
 
 export default RelativeBox;

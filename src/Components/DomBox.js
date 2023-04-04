@@ -1,17 +1,18 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
 
-const DomBox = ({ dom }) => {
+const DomBox = ({ dom, title }) => {
     return (
           <View style={styles.boxContainer}>
-            <Text>{dom}</Text>
+            <Text style={styles.header}>Dominant</Text>
+            <Text style={styles.body}>{dom}</Text>
           </View>
     )
 };
 
 const styles = StyleSheet.create({
     boxContainer: {
-        backgroundColor: 'white',
+        backgroundColor: '#ffcc00',
         height: 122,
         width: 125,
         alignItems: 'center',
@@ -19,6 +20,16 @@ const styles = StyleSheet.create({
         borderRightWidth: 1,
         borderBottomLeftRadius: 15,
     },
+    header: {
+        color: '#660099',
+        fontFamily: 'Futura-Bold',
+        fontSize: 14
+    },
+    body: {
+        color: '#660099',
+        fontFamily: 'Futura-Bold',
+        fontSize: 28
+    }
 });
 
 export default DomBox;

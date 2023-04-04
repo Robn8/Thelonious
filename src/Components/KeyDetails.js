@@ -12,7 +12,8 @@ const KeyDetails = ({ result }) => {
 const styles = StyleSheet.create({
     letterStyle: {
         fontSize: 64,
-        marginBottom: 5
+        marginBottom: 5,
+        color: 'white'
     },
 });
 
