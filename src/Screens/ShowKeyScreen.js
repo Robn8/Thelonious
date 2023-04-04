@@ -20,6 +20,7 @@ const ShowKeyScreen = ({ route }) => {
              title={item.title}
              relative={item.relativeMinor}
              dom={item.dominant}
+             triad={item.majorTriad}
             />
         </SafeAreaView>
     )

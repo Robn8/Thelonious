@@ -4,8 +4,9 @@ import React from 'react';
 
 import RelativeBox from './RelativeBox';
 import DomBox from './DomBox';
+import TriadBox from './TriadBox';
 
-const SharpBox = ({ sharps, flats, title, relative, dom }) => {
+const SharpBox = ({ sharps, flats, title, relative, dom, triad }) => {
     return (
         <SafeAreaView>
           <View style={styles.boxContainer}>
@@ -18,17 +19,21 @@ const SharpBox = ({ sharps, flats, title, relative, dom }) => {
                     )}
                 {flats !== 'None' && (
                     <View style={styles.flatBoxStyle}>
-                    <Text>Flats: {flats}</Text>
+                    <Text style={styles.flatText}>Flats</Text>
+                    <Text style={styles.flatNumber}>{flats}</Text>
                     </View>
                     )}
                 {title === 'C' && (
                     <View style={styles.flatBoxStyle}>
-                    <Text>C has no Sharps or Flats!</Text>
+                    <Text style={styles.cStyle}>C has no Sharps or Flats!</Text>
                     </View>
                 )}
                 <RelativeBox title={title} relative={relative} />
             </View>
-            <DomBox title={title} dom={dom} />
+            <View style={styles.row2}>
+                <DomBox title={title} dom={dom} />
+                <TriadBox triad={triad}/>
+            </View>
           </View>
         </SafeAreaView>
     )
@@ -47,10 +52,20 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         borderBottomWidth: 1
     },
-    sharpStyle: {
-        fontSize: 14,
+    row2: {
+        flexDirection: 'row',
+    },
+    cStyle: {
+        fontSize: 16,
         color: '#660099',
-        fontFamily: 'Futura-Bold'
+        fontFamily: 'Futura-Bold',
+        textAlign: 'center'
+    },
+    sharpStyle: {
+        fontSize: 16,
+        color: '#660099',
+        fontFamily: 'Futura-Bold',
+        paddingBottom: 5
     },
     sharpNumber: {
         fontSize: 28,
@@ -75,6 +90,17 @@ const styles = StyleSheet.create({
         borderRightWidth: 1,
         borderTopLeftRadius: 15,
     },
+    flatText: {
+        fontSize: 16,
+        color: '#660099',
+        fontFamily: 'Futura-Bold',
+        paddingBottom: 5
+    },
+    flatNumber: {
+        fontSize: 28,
+        color: '#660099',
+        fontFamily: 'Futura-Bold'
+    }
 });
 
 export default SharpBox;

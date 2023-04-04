@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
     header: {
         color: '#660099',
         fontFamily: 'Futura-Bold',
-        fontSize: 14
+        fontSize: 16,
+        paddingBottom: 5
     },
     body: {
         color: '#660099',

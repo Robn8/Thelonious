@@ -6,6 +6,7 @@ export const KeyData = [
     flats: 'None',
     relativeMinor: 'F#m',
     dominant: 'E/E7',
+    majorTriad: 'A/C#/E'
   },
   { id: '2',
     title: 'B',
@@ -14,6 +15,7 @@ export const KeyData = [
     flats: 'None',
     relativeMinor: 'G#m',
     dominant: 'F#/F#7',
+    majorTriad: 'B/D#/F#'
   },
   { id: '3',
   title: 'C',
@@ -21,7 +23,8 @@ export const KeyData = [
   sharps: 'None',
   flats: 'None',
   relativeMinor: 'Am',
-  dominant: 'G/G7'
+  dominant: 'G/G7',
+  majorTriad: 'C/E/G'
   },
   { id: '4',
     title: 'D',
@@ -30,6 +33,7 @@ export const KeyData = [
     flats: 'None',
     relativeMinor: 'Bm',
     dominant: 'A/A7',
+    majorTriad: 'D/F#/A'
   },
   { id: '5', 
     title: 'E',
@@ -37,7 +41,8 @@ export const KeyData = [
     sharps: '4',
     flats: 'None',
     relativeMinor: 'C#m',
-    dominant: 'B/B7', 
+    dominant: 'B/B7',
+    majorTriad: 'E/G#/B' 
   },
   { id: '6', 
     title: 'F',
@@ -45,7 +50,8 @@ export const KeyData = [
     sharps: 'None',
     flats: '1',
     relativeMinor: 'Dm',
-    dominant: 'C/C7', 
+    dominant: 'C/C7',
+    majorTriad: 'F/A/C' 
   },
   { id: '7',
     title: 'G',
@@ -53,6 +59,7 @@ export const KeyData = [
     sharps: '1',
     flats: 'None',
     relativeMinor: 'Em',
-    dominant: 'D/D7', 
+    dominant: 'D/D7',
+    majorTriad: 'G/B/D' 
   },
 ];
