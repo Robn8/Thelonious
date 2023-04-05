@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     boxContainer: {
         backgroundColor: '#ffcc00',
         height: 122,
-        width: 125,
+        width: 124,
         alignItems: 'center',
         justifyContent: 'center',
         borderRightWidth: 1,
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     body: {
         color: '#660099',
         fontFamily: 'Futura-Bold',
-        fontSize: 28
+        fontSize: 26
     }
 });
 

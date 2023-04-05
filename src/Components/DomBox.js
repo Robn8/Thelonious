@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     body: {
         color: '#660099',
         fontFamily: 'Futura-Bold',
-        fontSize: 28
+        fontSize: 26
     }
 });
 

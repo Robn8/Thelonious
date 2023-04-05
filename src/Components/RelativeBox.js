@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 15
     },
     body: {
-        fontSize: 28,
+        fontSize: 26,
         color: '#660099',
         fontFamily: 'Futura-Bold',
     },
