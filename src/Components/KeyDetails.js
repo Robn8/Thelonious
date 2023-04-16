@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     letterStyle: {
         fontSize: 64,
         marginBottom: 5,
-        color: 'white'
+        color: 'black'
     },
 });
 

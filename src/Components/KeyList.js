@@ -6,7 +6,6 @@ import { withNavigation } from '@react-navigation/compat';
 
 
 const KeyList = ({ navigation }) => {
-
     return (
         <View>
             <FlatList
@@ -14,9 +13,11 @@ const KeyList = ({ navigation }) => {
                   keyExtractor={(item) => item.id}
                   showsHorizontalScrollIndicator={false}
                   renderItem={({ item }) => (
+                    <View>
                     <TouchableOpacity onPress={() => navigation.navigate('ShowKeyScreen', { id: item.id })}>
                       <KeyDetails result={item} />
                     </TouchableOpacity>
+                    </View>
                   )} 
                 />
         </View>
