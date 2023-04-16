@@ -16,9 +16,9 @@ const Tab = createBottomTabNavigator();
 function MainTabs() {
   return (
     <Tab.Navigator initialRouteName='Home'>
-      <Tab.Screen name="Theory" component={TheoryScreen} />
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Select" component={SelectScreen} />
+      <Tab.Screen name="Theory" component={TheoryScreen} options={{ headerShown: false }} />
+      <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+      <Tab.Screen name="Select" component={SelectScreen} options={{ headerShown: false }} />
     </Tab.Navigator>
   );
 }

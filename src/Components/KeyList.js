@@ -6,6 +6,12 @@ import { withNavigation } from '@react-navigation/compat';
 
 
 const KeyList = ({ navigation }) => {
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false, // Hide the navigation header
+    });
+  }, []);
+
     return (
         <View>
             <FlatList
