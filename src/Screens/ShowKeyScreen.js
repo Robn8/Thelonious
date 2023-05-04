@@ -3,11 +3,21 @@ import { SafeAreaView } from 'react-navigation';
 import React from 'react';
 
 import { KeyData } from '../Data/KeyData';
+import { SharpData } from '../Data/SharpData';
+import { FlatData } from '../Data/FlatData';
 import SharpBox from '../Components/SharpBox';
 
 const ShowKeyScreen = ({ route }) => {
     const { id } = route.params;
-    const item = KeyData.find(item => item.id === id);
+    let item;
+
+    if (id >= 1 && id <= 7) {
+        item = KeyData.find(item => item.id === id);
+    } else if (id >= 8 && id <= 14) {
+        item = SharpData.find(item => item.id === id);
+    } else if (id >= 15 && id <=21) {
+        item = FlatData.find(item => item.id === id);
+    }
 
     return (
         <SafeAreaView style={styles.container}>
