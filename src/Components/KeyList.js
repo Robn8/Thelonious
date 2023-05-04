@@ -22,8 +22,6 @@ const getDataObject = (selectedOption) => {
 
 
 const KeyList = ({ navigation, selectedOption }) => {
-  console.log(selectedOption)
-
   const [data, setData] = useState(() => getDataObject(selectedOption));
 
   useEffect(() => {

@@ -25,7 +25,8 @@ const SelectScreen = () => {
             </TouchableOpacity>
           )}
           horizontal={true}
-          contentContainerStyle={{ flex: 1, textAlign: 'center' }}
+          contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}
+          style={{ alignSelf: 'center' }}
         />
       </View>
       <Text style={styles.header}>Select A Major Key!</Text>
