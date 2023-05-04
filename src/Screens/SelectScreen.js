@@ -28,7 +28,7 @@ const SelectScreen = () => {
           contentContainerStyle={{ flex: 1, textAlign: 'center' }}
         />
       </View>
-      <Text style={styles.header}>Select A Key!</Text>
+      <Text style={styles.header}>Select A Major Key!</Text>
       <KeyList selectedOption={selectedOption} />
     </View>
   )
