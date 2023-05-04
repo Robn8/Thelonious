@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { KeyData } from '../Data/KeyData';
 import KeyDetails from './KeyDetails';
 import { withNavigation } from '@react-navigation/compat';
 
 
-const KeyList = ({ navigation }) => {
+const KeyList = ({ navigation, selectedOption }) => {
+  console.log(selectedOption)
+
     return (
         <View>
             <FlatList

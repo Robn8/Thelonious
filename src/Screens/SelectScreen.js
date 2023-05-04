@@ -1,5 +1,4 @@
 import { Text, StyleSheet, FlatList, TouchableOpacity, View } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
 import React, { useState } from 'react';
 import KeyList from '../Components/KeyList';
 
@@ -26,10 +25,11 @@ const SelectScreen = () => {
             </TouchableOpacity>
           )}
           horizontal={true}
+          contentContainerStyle={{ flex: 1, textAlign: 'center' }}
         />
       </View>
       <Text style={styles.header}>Select A Key!</Text>
-      <KeyList />
+      <KeyList selectedOption={selectedOption} />
     </View>
   )
 };
