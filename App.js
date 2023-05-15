@@ -9,6 +9,7 @@ import SelectScreen from './src/Screens/SelectScreen';
 import ShowKeyScreen from './src/Screens/ShowKeyScreen';
 
 import { withNavigation } from '@react-navigation/compat';
+import ModesChartScreen from './src/Screens/ModesChartScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -18,7 +19,7 @@ function MainTabs() {
     <Tab.Navigator initialRouteName='Home'>
       <Tab.Screen name="Theory" component={TheoryScreen} options={{ headerShown: false }} />
       <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-      <Tab.Screen name="Select" component={SelectScreen} options={{ headerShown: false }} />
+      <Tab.Screen name="Keys" component={SelectScreen} options={{ headerShown: false }} />
     </Tab.Navigator>
   );
 }
@@ -29,6 +30,7 @@ function App() {
       <Stack.Navigator >
         <Stack.Screen name="Thelonious" component={MainTabs} />
         <Stack.Screen name="ShowKeyScreen" component={ShowKeyScreen} />
+        <Stack.Screen name="ModesChartScreen" component={ModesChartScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

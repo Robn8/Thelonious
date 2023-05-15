@@ -1,16 +1,29 @@
-import { Text, View, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
-import backgroundStyle from '../Data/BackgroundStyle';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     return (
-        <SafeAreaView style={backgroundStyle.container}>
-            <Text>Home Screen</Text>
-        </SafeAreaView>
+        <View style={styles.container}>
+            <TouchableOpacity onPress={() => navigation.navigate('Select')}>
+                <Text style={styles.btnText}>List Of Major Keys</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('ModesChartScreen')}>
+                <Text style={styles.btnText}>Guitar Modes Chart</Text>
+            </TouchableOpacity>
+        </View>
     )
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    btnText: {
+        fontSize: 36,
+        marginBottom: 10
+    }
+});
 
 export default HomeScreen;
