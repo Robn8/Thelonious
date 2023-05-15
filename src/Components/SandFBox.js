@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
     },
     sharpBoxStyle: {
         backgroundColor: '#ffcc00',
-        height: 125,
-        width: 125,
+        height: 150,
+        width: 150,
         alignItems: 'center',
         justifyContent: 'center',
         borderRightWidth: 1,
@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
     },
     flatBoxStyle: {
         backgroundColor: '#ffcc00',
-        height: 125,
-        width: 125,
+        height: 150,
+        width: 150,
         alignItems: 'center',
         justifyContent: 'center',
         borderRightWidth: 1,

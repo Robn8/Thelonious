@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'black',
         backgroundColor: 'white',
-        height: 250,
-        width: 250,
+        height: 300,
+        width: 300,
         borderRadius: 15,
     },
     row1: {

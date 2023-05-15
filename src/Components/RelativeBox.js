@@ -13,8 +13,8 @@ const RelativeBox = ({ relative }) => {
 const styles = StyleSheet.create({
     boxContainer: {
         backgroundColor: '#ffcc00',
-        height: 125,
-        width: 123,
+        height: 150,
+        width: 149,
         alignItems: 'center',
         justifyContent: 'center',
         borderTopRightRadius: 15

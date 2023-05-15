@@ -23,6 +23,7 @@ const ShowKeyScreen = ({ route }) => {
         <SafeAreaView style={styles.container}>
             <Text style={styles.keyStyle}>{item.title}</Text>
             <Text style={styles.body}>Diatonic Chords In The Key of {item.title}:</Text>
+            
             <Text style={styles.chordStyle}>{item.chords}</Text>
             <SharpBox 
              sharps={item.sharps}
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
     body: {
         color: 'white',
         fontSize: 18
-    }
+    },
 });
 
 export default ShowKeyScreen;

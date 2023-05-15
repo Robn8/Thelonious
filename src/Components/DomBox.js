@@ -13,8 +13,8 @@ const DomBox = ({ dom, title }) => {
 const styles = StyleSheet.create({
     boxContainer: {
         backgroundColor: '#ffcc00',
-        height: 122,
-        width: 125,
+        height: 150,
+        width: 150,
         alignItems: 'center',
         justifyContent: 'center',
         borderRightWidth: 1,
