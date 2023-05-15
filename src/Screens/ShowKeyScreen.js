@@ -22,7 +22,7 @@ const ShowKeyScreen = ({ route }) => {
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.keyStyle}>{item.title}</Text>
-            <Text style={styles.body}>Diatonic Chords In The Key of {item.title}:</Text>
+            <Text style={styles.body}>Diatonic Chords of {item.title}:</Text>
             
             <Text style={styles.chordStyle}>{item.chords}</Text>
             <SharpBox 
@@ -46,21 +46,18 @@ const styles = StyleSheet.create({
     },
     keyStyle: {
         paddingBottom: 5,
-        fontSize: 64,
+        fontSize: 100,
         color: 'white'
     },
     chordStyle: {
-        paddingBottom: 5,
-        paddingTop: 2,
-        paddingLeft: 2,
-        paddingRight: 2,
-        fontSize: 20,
+        fontSize: 21,
         color: 'white',
-        marginBottom: 10
+        marginTop: 10,
+        marginBottom: 15
     },
     body: {
         color: 'white',
-        fontSize: 18
+        fontSize: 32
     },
 });
 
