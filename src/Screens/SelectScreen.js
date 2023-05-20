@@ -40,25 +40,25 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#402E5C',
+    backgroundColor: '#D8D8D8',
   },
   header: {
     fontSize: 24,
     marginBottom: 5,
-    marginTop: 0,
-    color: 'white'
+    marginTop: 10,
+    color: '#402E5C'
   },
   optionContainer: {
-    marginVertical: 20,
+    marginVertical: 0,
     flexDirection: 'row', // Set direction to row
     justifyContent: 'center'
   },
   optionButton: {
     marginHorizontal: 10,
     padding: 10,
-    backgroundColor: 'lightblue',
+    backgroundColor: '#402E5C',
     borderRadius: 5,
-    marginTop: 100
+    marginTop: 125
   },
   optionLabel: {
     color: 'white',

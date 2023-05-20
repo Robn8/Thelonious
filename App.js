@@ -10,6 +10,7 @@ import ShowKeyScreen from './src/Screens/ShowKeyScreen';
 
 import { withNavigation } from '@react-navigation/compat';
 import ModesChartScreen from './src/Screens/ModesChartScreen';
+import CagedScreen from './src/Screens/CagedScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -31,6 +32,7 @@ function App() {
         <Stack.Screen name="Thelonious" component={MainTabs} />
         <Stack.Screen name="ShowKeyScreen" component={ShowKeyScreen} />
         <Stack.Screen name="ModesChartScreen" component={ModesChartScreen} />
+        <Stack.Screen name="CagedScreen" component={CagedScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
