@@ -1,10 +1,22 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
+import { GModesChart } from '../Data/GModesChart';
 
 const ModesChartScreen = () => {
     return (
         <View>
             <Text>Guitar Modes Chart</Text>
+            <FlatList
+             data={ GModesChart }
+             renderItem={({ item }) => (
+                <View>
+                  <Image 
+                    source={item.source}
+                    style={{ width: 420, height: 400 }}
+                />
+                </View>
+             )}
+            />
         </View>
     );
 };
