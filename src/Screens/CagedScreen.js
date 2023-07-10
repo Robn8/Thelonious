@@ -1,10 +1,21 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, FlatList, Image } from 'react-native';
+import { CagedChart } from '../Data/CagedChart';
 
 const CagedScreen = () => {
     return (
         <View>
-            <Text>Caged Screen</Text>
+            <FlatList
+             data={ CagedChart }
+             renderItem={({ item }) => (
+                <View>
+                  <Image 
+                    source={item.source}
+                    style={{ width: 420, height: 450 }}
+                />
+                </View>
+             )}
+            />
         </View>
     )
 };

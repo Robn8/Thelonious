@@ -5,7 +5,6 @@ import { GModesChart } from '../Data/GModesChart';
 const ModesChartScreen = () => {
     return (
         <View>
-            <Text>Guitar Modes Chart</Text>
             <FlatList
              data={ GModesChart }
              renderItem={({ item }) => (
