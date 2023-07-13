@@ -4,11 +4,14 @@ import React from 'react';
 const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
+            <TouchableOpacity onPress={() => navigation.navigate('Keys')}>
+                <Text style={styles.btnText}>Key Selector</Text>
+            </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('ModesChartScreen')}>
-                <Text style={styles.btnText}>Guitar Modes Chart</Text>
+                <Text style={styles.btnText}>Modes Charts</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('CagedScreen')}>
-                <Text style={styles.btnText}>Caged Chords Chart</Text>
+                <Text style={styles.btnText}>Caged Chords</Text>
             </TouchableOpacity>
         </View>
     )
