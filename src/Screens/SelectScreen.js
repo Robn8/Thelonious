@@ -38,35 +38,37 @@ const SelectScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#D8D8D8',
+
+   
+    backgroundColor: 'lightblue',
   },
   header: {
     fontSize: 26,
     marginBottom: 0,
     marginTop: 5,
-    color: '#402E5C',
+    color: 'black',
     fontFamily: 'Marker Felt',
+    alignSelf: 'center'
   },
   optionContainer: {
     flexDirection: 'row', // Set direction to row
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 5
+    marginTop: 0
   },
   optionButton: {
     marginHorizontal: 0,
-    padding: 34,
-    backgroundColor: '#402E5C',
-    marginTop: 100,
+    padding: 30,
+    backgroundColor: 'hotpink',
+    marginTop: 0,
     
   },
   optionLabel: {
     color: 'white',
-    fontSize: 24,
-    paddingTop: 10
+    fontSize: 26,
+    paddingTop: 0,
+    fontFamily: 'Marker Felt',
+    
   },
 });
 

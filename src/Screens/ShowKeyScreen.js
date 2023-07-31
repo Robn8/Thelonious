@@ -42,22 +42,22 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#402E5C',
+        backgroundColor: 'lightblue',
     },
     keyStyle: {
         fontSize: 100,
-        color: 'white',
+        color: 'black',
         fontFamily: 'Marker Felt'
     },
     chordStyle: {
         fontSize: 21,
-        color: 'white',
+        color: 'black',
         marginTop: 10,
         marginBottom: 15,
         fontFamily: 'Marker Felt'
     },
     body: {
-        color: 'white',
+        color: 'black',
         fontSize: 32,
         fontFamily: 'Marker Felt'
     },

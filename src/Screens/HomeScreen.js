@@ -4,6 +4,7 @@ import React from 'react';
 const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
+            <Text>Thelonious Music Theory App</Text>
             <TouchableOpacity onPress={() => navigation.navigate('Keys')}>
                 <Text style={styles.btnText}>Key Selector</Text>
             </TouchableOpacity>
@@ -22,6 +23,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'lightblue'
     },
     btnText: {
         fontSize: 36,

@@ -13,8 +13,10 @@ const styles = StyleSheet.create({
     letterStyle: {
         fontSize: 62,
         marginBottom: 0,
-        color: '#402E5C',
-        fontFamily: 'Marker Felt'
+        color: 'black',
+        fontFamily: 'Marker Felt',
+        alignSelf: 'center',
+        marginBottom: 5
     },
 });
 

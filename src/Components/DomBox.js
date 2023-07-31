@@ -12,8 +12,8 @@ const DomBox = ({ dom, title }) => {
 
 const styles = StyleSheet.create({
     boxContainer: {
-        backgroundColor: '#ffcc00',
-        height: 150,
+        backgroundColor: 'hotpink',
+        height: 147,
         width: 150,
         alignItems: 'center',
         justifyContent: 'center',
@@ -21,15 +21,15 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 15,
     },
     header: {
-        color: '#660099',
-        fontFamily: 'Futura-Bold',
-        fontSize: 16,
+        color: 'white',
+        fontFamily: 'Marker Felt',
+        fontSize: 24,
         paddingBottom: 5
     },
     body: {
-        color: '#660099',
-        fontFamily: 'Futura-Bold',
-        fontSize: 26
+        color: 'white',
+        fontFamily: 'Marker Felt',
+        fontSize: 28
     }
 });
 

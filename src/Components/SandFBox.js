@@ -18,7 +18,7 @@ const Box1 = ({ sharps, flats, title }) => {
             )}
         {title === 'C' && (
             <View style={styles.flatBoxStyle}>
-            <Text style={styles.cStyle}>C has no Sharps or Flats!</Text>
+            <Text style={styles.cStyle}>C Has No Sharps Or Flats!</Text>
             </View>
         )}
     </View>
@@ -27,24 +27,24 @@ const Box1 = ({ sharps, flats, title }) => {
 
 const styles = StyleSheet.create({
     cStyle: {
-        fontSize: 16,
-        color: '#660099',
+        fontSize: 24,
+        color: 'white',
         fontFamily: 'Futura-Bold',
         textAlign: 'center'
     },
     sharpStyle: {
-        fontSize: 16,
-        color: '#660099',
-        fontFamily: 'Futura-Bold',
+        fontSize: 24,
+        color: 'white',
+        fontFamily: 'Marker Felt',
         paddingBottom: 5
     },
     sharpNumber: {
-        fontSize: 26,
-        color: '#660099',
-        fontFamily: 'Futura-Bold'
+        fontSize: 28,
+        color: 'white',
+        fontFamily: 'Marker Felt'
     },
     sharpBoxStyle: {
-        backgroundColor: '#ffcc00',
+        backgroundColor: 'hotpink',
         height: 150,
         width: 150,
         alignItems: 'center',
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 15,
     },
     flatBoxStyle: {
-        backgroundColor: '#ffcc00',
+        backgroundColor: 'hotpink',
         height: 150,
         width: 150,
         alignItems: 'center',
@@ -63,14 +63,14 @@ const styles = StyleSheet.create({
     },
     flatText: {
         fontSize: 16,
-        color: '#660099',
-        fontFamily: 'Futura-Bold',
+        color: 'white',
+        fontFamily: 'Marker Felt',
         paddingBottom: 5
     },
     flatNumber: {
         fontSize: 26,
-        color: '#660099',
-        fontFamily: 'Futura-Bold'
+        color: 'white',
+        fontFamily: 'Marker Felt'
     }
 });
 

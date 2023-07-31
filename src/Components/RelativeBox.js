@@ -4,7 +4,7 @@ import React from 'react';
 const RelativeBox = ({ relative }) => {
     return (
           <View style={styles.boxContainer}>
-            <Text style={styles.header}>Relative Minor</Text>
+            <Text style={styles.header}>Rel. Minor</Text>
             <Text style={styles.body}>{relative}</Text>
           </View>
     )
@@ -12,22 +12,22 @@ const RelativeBox = ({ relative }) => {
 
 const styles = StyleSheet.create({
     boxContainer: {
-        backgroundColor: '#ffcc00',
+        backgroundColor: 'white',
         height: 150,
-        width: 149,
+        width: 148,
         alignItems: 'center',
         justifyContent: 'center',
         borderTopRightRadius: 15
     },
     body: {
-        fontSize: 26,
-        color: '#660099',
-        fontFamily: 'Futura-Bold',
+        fontSize: 28,
+        color: 'hotpink',
+        fontFamily: 'Marker Felt',
     },
     header: {
-        fontSize: 14,
-        color: '#660099',
-        fontFamily: 'Futura-Bold',
+        fontSize: 24,
+        color: 'hotpink',
+        fontFamily: 'Marker Felt',
         paddingBottom: 5
     }
 });
