@@ -46,9 +46,11 @@ const styles = StyleSheet.create({
         borderColor: 'black'
       },
       title: {
-        fontSize: 18,
+        fontSize: 24,
         fontWeight: 'bold',
-        color: 'black', 
+        color: 'black',
+        marginBottom: 10,
+        fontFamily: 'Marker Felt' 
       },
       description: {
         fontSize: 14,
