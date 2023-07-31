@@ -14,6 +14,9 @@ const HomeScreen = ({ navigation }) => {
             <TouchableOpacity onPress={() => navigation.navigate('Caged Chords')}>
                 <Text style={styles.btnText}>Caged Chords</Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('ProgScreen')}>
+                <Text style={styles.btnText}>Chord Progressions</Text>
+            </TouchableOpacity>
         </View>
     )
 };
