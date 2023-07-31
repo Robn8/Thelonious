@@ -31,8 +31,8 @@ function App() {
       <Stack.Navigator >
         <Stack.Screen name="Thelonious" component={MainTabs} />
         <Stack.Screen name="ShowKeyScreen" component={ShowKeyScreen} />
-        <Stack.Screen name="ModesChartScreen" component={ModesChartScreen} />
-        <Stack.Screen name="CagedScreen" component={CagedScreen} />
+        <Stack.Screen name="Guitar Modes" component={ModesChartScreen} />
+        <Stack.Screen name="Caged Chords" component={CagedScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

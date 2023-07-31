@@ -7,10 +7,10 @@ const HomeScreen = ({ navigation }) => {
             <TouchableOpacity onPress={() => navigation.navigate('Keys')}>
                 <Text style={styles.btnText}>Key Selector</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('ModesChartScreen')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Guitar Modes')}>
                 <Text style={styles.btnText}>Modes Charts</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('CagedScreen')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Caged Chords')}>
                 <Text style={styles.btnText}>Caged Chords</Text>
             </TouchableOpacity>
         </View>
@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
     },
     btnText: {
         fontSize: 36,
-        marginBottom: 10
+        marginBottom: 10,
+        fontFamily: 'Marker Felt'
     }
 });
 

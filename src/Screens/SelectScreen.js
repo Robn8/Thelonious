@@ -24,6 +24,7 @@ const SelectScreen = () => {
               <Text style={styles.optionLabel}>{item.label}</Text>
             </TouchableOpacity>
           )}
+          numColumns={1} // Set numColumns to 1 to display items in a single column
           horizontal={true}
           contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}
           style={{ alignSelf: 'center' }}
@@ -43,26 +44,29 @@ const styles = StyleSheet.create({
     backgroundColor: '#D8D8D8',
   },
   header: {
-    fontSize: 24,
-    marginBottom: 5,
-    marginTop: 10,
-    color: '#402E5C'
+    fontSize: 26,
+    marginBottom: 0,
+    marginTop: 5,
+    color: '#402E5C',
+    fontFamily: 'Marker Felt',
   },
   optionContainer: {
-    marginVertical: 0,
     flexDirection: 'row', // Set direction to row
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 5
   },
   optionButton: {
-    marginHorizontal: 10,
-    padding: 10,
+    marginHorizontal: 0,
+    padding: 34,
     backgroundColor: '#402E5C',
-    borderRadius: 5,
-    marginTop: 125
+    marginTop: 100,
+    
   },
   optionLabel: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 24,
+    paddingTop: 10
   },
 });
 
