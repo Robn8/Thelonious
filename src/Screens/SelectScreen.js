@@ -59,14 +59,16 @@ const styles = StyleSheet.create({
   optionButton: {
     marginHorizontal: 0,
     padding: 30,
-    backgroundColor: 'hotpink',
+    backgroundColor: 'maroon',
     marginTop: 0,
     
   },
   optionLabel: {
     color: 'white',
     fontSize: 26,
-    paddingTop: 0,
+    paddingTop: 
+    
+    0,
     fontFamily: 'Marker Felt',
     
   },

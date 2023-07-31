@@ -12,12 +12,11 @@ const TriadBox = ({ triad }) => {
 
 const styles = StyleSheet.create({
     boxContainer: {
-        backgroundColor: 'hotpink',
-        height: 147,
+        backgroundColor: 'maroon',
+        height: 150,
         width: 150,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRightWidth: 1,
         borderBottomRightRadius: 15,
     },
     header: {

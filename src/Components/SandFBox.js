@@ -44,31 +44,31 @@ const styles = StyleSheet.create({
         fontFamily: 'Marker Felt'
     },
     sharpBoxStyle: {
-        backgroundColor: 'hotpink',
+        backgroundColor: 'maroon',
         height: 150,
         width: 150,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRightWidth: 1,
+        
         borderTopLeftRadius: 15,
     },
     flatBoxStyle: {
-        backgroundColor: 'hotpink',
+        backgroundColor: 'maroon',
         height: 150,
         width: 150,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRightWidth: 1,
+        
         borderTopLeftRadius: 15,
     },
     flatText: {
-        fontSize: 16,
+        fontSize: 24,
         color: 'white',
         fontFamily: 'Marker Felt',
         paddingBottom: 5
     },
     flatNumber: {
-        fontSize: 26,
+        fontSize: 28,
         color: 'white',
         fontFamily: 'Marker Felt'
     }

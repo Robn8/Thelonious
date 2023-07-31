@@ -26,7 +26,7 @@ const SharpBox = ({ sharps, flats, title, relative, dom, triad }) => {
 
 const styles = StyleSheet.create({
     boxContainer: {
-        borderWidth: 1,
+       
         borderColor: 'black',
         backgroundColor: 'white',
         height: 300,

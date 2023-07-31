@@ -12,21 +12,22 @@ const RelativeBox = ({ relative }) => {
 
 const styles = StyleSheet.create({
     boxContainer: {
-        backgroundColor: 'white',
+        backgroundColor: '#FFC857',
         height: 150,
-        width: 148,
+        width: 150,
         alignItems: 'center',
         justifyContent: 'center',
-        borderTopRightRadius: 15
+        borderTopRightRadius: 15,
+        borderBottomWidth: 1
     },
     body: {
         fontSize: 28,
-        color: 'hotpink',
+        color: 'maroon',
         fontFamily: 'Marker Felt',
     },
     header: {
         fontSize: 24,
-        color: 'hotpink',
+        color: 'maroon',
         fontFamily: 'Marker Felt',
         paddingBottom: 5
     }
