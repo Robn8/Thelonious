@@ -50,12 +50,14 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'black',
         marginBottom: 10,
+        marginTop: 15,
         fontFamily: 'Marker Felt' 
       },
       description: {
         fontSize: 14,
         color: 'black', 
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 10
       },
 });
 
