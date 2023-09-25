@@ -9,9 +9,10 @@ import SelectScreen from './src/Screens/SelectScreen';
 import ShowKeyScreen from './src/Screens/ShowKeyScreen';
 import ProgScreen from './src/Screens/ProgScreen';
 
-import { withNavigation } from '@react-navigation/compat';
 import ModesChartScreen from './src/Screens/ModesChartScreen';
 import CagedScreen from './src/Screens/CagedScreen';
+
+import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -19,9 +20,34 @@ const Tab = createBottomTabNavigator();
 function MainTabs() {
   return (
     <Tab.Navigator initialRouteName='Home'>
-      <Tab.Screen name="Theory" component={TheoryScreen} options={{ headerShown: false }} />
-      <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-      <Tab.Screen name="Keys" component={SelectScreen} options={{ headerShown: false }} />
+      <Tab.Screen
+       name="Theory" 
+       component={TheoryScreen} 
+       options={{ 
+        headerShown: false,
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons name="ios-book" size={size} color={color} />
+        ),
+      }}
+    />
+      <Tab.Screen
+       name="Home" 
+       component={HomeScreen} 
+       options={{ headerShown: false,
+       tabBarIcon: ({color, size }) => (
+        <Ionicons name="home" size={size} color={color} />
+       ),
+      }} 
+    />
+      <Tab.Screen
+       name="Keys" 
+       component={SelectScreen} 
+       options={{ headerShown: false,
+       tabBarIcon: ({ color, size }) => (
+        <Ionicons name="musical-notes" size={size} color={color} />
+       ),
+      }}
+   />
     </Tab.Navigator>
   );
 }

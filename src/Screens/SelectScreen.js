@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   container: {
 
    
-    backgroundColor: 'lightblue',
+    backgroundColor: '#FFFFFF',
   },
   header: {
     fontSize: 26,
@@ -56,19 +56,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 0
   },
+  // size and prop of btns
   optionButton: {
     marginHorizontal: 0,
     padding: 30,
-    backgroundColor: 'maroon',
+    backgroundColor: 'white',
     marginTop: 0,
-    
+    marginBottom: 0,
   },
+  // text for btns: 
   optionLabel: {
-    color: 'white',
+    color: 'black',
     fontSize: 26,
-    paddingTop: 
-    
-    0,
+    paddingTop: 0,
     fontFamily: 'Marker Felt',
     
   },
