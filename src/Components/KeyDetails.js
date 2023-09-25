@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         color: 'black',
         fontFamily: 'Marker Felt',
         alignSelf: 'center',
-        marginBottom: 5
+        marginBottom: 15
     },
 });
 

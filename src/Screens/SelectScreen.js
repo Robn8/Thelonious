@@ -38,14 +38,12 @@ const SelectScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-
-   
     backgroundColor: '#FFFFFF',
   },
   header: {
-    fontSize: 26,
-    marginBottom: 0,
-    marginTop: 5,
+    fontSize: 36,
+    marginBottom: 10,
+    marginTop: -23,
     color: 'black',
     fontFamily: 'Marker Felt',
     alignSelf: 'center'
@@ -54,7 +52,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row', // Set direction to row
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 0
+    marginTop: 35,
+    marginLeft: 15
   },
   // size and prop of btns
   optionButton: {
