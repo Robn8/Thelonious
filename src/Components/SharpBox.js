@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-import { SafeAreaView } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import React from 'react';
 
 import Box1 from './SandFBox';
@@ -7,7 +7,7 @@ import RelativeBox from './RelativeBox';
 import DomBox from './DomBox';
 import TriadBox from './TriadBox';
 
-const SharpBox = ({ sharps, flats, title, relative, dom, triad }) => {
+export const SharpBox = ({ sharps, flats, title, relative, dom, triad }) => {
     return (
         <SafeAreaView>
           <View style={styles.boxContainer}>
@@ -42,4 +42,3 @@ const styles = StyleSheet.create({
     },
 });
 
-export default SharpBox;

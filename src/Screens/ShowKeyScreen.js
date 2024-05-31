@@ -5,7 +5,9 @@ import React from 'react';
 import { KeyData } from '../Data/KeyData.js';
 import { SharpData } from '../Data/SharpData';
 import { FlatData } from '../Data/FlatData';
-import SharpBox from '../Components/SharpBox';
+import { SharpBox } from '../Components/SharpBox.js';
+
+console.log('SharpBox:', SharpBox);
 
 const ShowKeyScreen = ({ route }) => {
     const { id } = route.params;
