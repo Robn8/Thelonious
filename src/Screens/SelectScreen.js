@@ -2,13 +2,16 @@ import { Text, StyleSheet, FlatList, TouchableOpacity, View } from 'react-native
 import React, { useState } from 'react';
 import KeyList from '../Components/KeyList';
 
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+
 const SelectScreen = () => {
   const [selectedOption, setSelectedOption] = useState('');
 
   const options = [
-    { label: 'Flats', value: 'flats' },
-    { label: 'Naturals', value: 'naturals' },
-    { label: 'Sharps', value: 'sharps' }
+    { label: 'Flats', value: 'flats', icon: "music-accidental-flat" },
+    { label: 'Naturals', value: 'naturals', icon: "music-accidental-natural" },
+    { label: 'Sharps', value: 'sharps', icon: "music-accidental-sharp" }
   ];
 
   return (
@@ -21,7 +24,8 @@ const SelectScreen = () => {
               style={styles.optionButton}
               onPress={() => setSelectedOption(item.value)}
             >
-              <Text style={styles.optionLabel}>{item.label}</Text>
+              <MaterialCommunityIcons name={item.icon} size={60} color="black" />
+              
             </TouchableOpacity>
           )}
           numColumns={1} // Set numColumns to 1 to display items in a single column
@@ -42,8 +46,8 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 36,
-    marginBottom: 10,
-    marginTop: -23,
+    marginBottom: 0,
+    marginTop: -25,
     color: 'black',
     fontFamily: 'Marker Felt',
     alignSelf: 'center'
@@ -52,8 +56,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row', // Set direction to row
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 35,
-    marginLeft: 15
+    marginTop: 15,
+    marginLeft: 0
   },
   // size and prop of btns
   optionButton: {
@@ -63,14 +67,7 @@ const styles = StyleSheet.create({
     marginTop: 0,
     marginBottom: 0,
   },
-  // text for btns: 
-  optionLabel: {
-    color: 'black',
-    fontSize: 26,
-    paddingTop: 0,
-    fontFamily: 'Marker Felt',
-    
-  },
+  
 });
 
 export default SelectScreen;
