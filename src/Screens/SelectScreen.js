@@ -15,7 +15,9 @@ const SelectScreen = () => {
   ];
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container}> 
+      <Text style={styles.header}>Select A Major Key!</Text>
+      <KeyList selectedOption={selectedOption} />
       <View style={styles.optionContainer}>
         <FlatList
           data={options}
@@ -24,8 +26,7 @@ const SelectScreen = () => {
               style={styles.optionButton}
               onPress={() => setSelectedOption(item.value)}
             >
-              <MaterialCommunityIcons name={item.icon} size={60} color="black" />
-              
+              <MaterialCommunityIcons name={item.icon} size={70} color="black" />  
             </TouchableOpacity>
           )}
           numColumns={1} // Set numColumns to 1 to display items in a single column
@@ -34,8 +35,6 @@ const SelectScreen = () => {
           style={{ alignSelf: 'center' }}
         />
       </View>
-      <Text style={styles.header}>Select A Major Key!</Text>
-      <KeyList selectedOption={selectedOption} />
     </View>
   )
 };
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 36,
     marginBottom: 0,
-    marginTop: -25,
+    marginTop: 65,
     color: 'black',
     fontFamily: 'Marker Felt',
     alignSelf: 'center'
@@ -56,16 +55,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row', // Set direction to row
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 15,
+    marginTop: 0,
     marginLeft: 0
   },
   // size and prop of btns
   optionButton: {
     marginHorizontal: 0,
-    padding: 30,
+    padding: 15,
     backgroundColor: 'white',
     marginTop: 0,
-    marginBottom: 0,
+    marginBottom: 10,
   },
   
 });

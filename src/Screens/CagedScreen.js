@@ -7,12 +7,13 @@ const CagedScreen = () => {
         <View>
             <FlatList
              data={ CagedChart }
+             keyExtractor={(item) => item.id}
              renderItem={({ item }) => (
                 <View>
                   <Image 
-                    source={item.source}
+                    source={typeof item.source === 'string' ? { uri: item.source } : item.source}
                     style={{ width: 420, height: 450 }}
-                />
+                  />
                 </View>
              )}
             />
@@ -20,6 +21,6 @@ const CagedScreen = () => {
     )
 };
 
-const styles =StyleSheet.create({});
+const styles = StyleSheet.create({});
 
 export default CagedScreen;

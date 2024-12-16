@@ -1,8 +1,10 @@
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 import React from 'react';
 
 const HomeScreen = ({ navigation }) => {
+
     return (
+        
         <View style={styles.container}>
             <Text>Thelonious Music Theory App</Text>
             <TouchableOpacity onPress={() => navigation.navigate('Keys')}>
@@ -18,6 +20,7 @@ const HomeScreen = ({ navigation }) => {
                 <Text style={styles.btnText}>Chord Progressions</Text>
             </TouchableOpacity>
         </View>
+        
     )
 };
 
@@ -32,7 +35,11 @@ const styles = StyleSheet.create({
         fontSize: 36,
         marginBottom: 10,
         fontFamily: 'Marker Felt'
-    }
+    },
+    background: {
+        flex: 1, // Ensure the background image covers the entire screen
+        resizeMode: 'cover', // Ensure the image covers the background
+      },
 });
 
 export default HomeScreen;

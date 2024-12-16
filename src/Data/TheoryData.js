@@ -67,5 +67,4 @@ vii° (Leading Tone): The seventh note (B in the key of C major) forms the vii°
       Parallel Major and Minor: It's important to differentiate between relative minor and parallel minor. A parallel minor shares the same tonic as the major key but has a different key signature. For example, the parallel minor of C major is C minor, which has three flats (Bb, Eb, Ab).
       
       Understanding relative minors is valuable in music composition, improvisation, and analysis. It allows musicians to explore the emotional range of a key and create more nuanced and expressive musical compositions.` },
-    // Add more items as needed
   ];

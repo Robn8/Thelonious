@@ -11,7 +11,7 @@ const KeyDetails = ({ result }) => {
 
 const styles = StyleSheet.create({
     letterStyle: {
-        fontSize: 62,
+        fontSize: 54,
         marginBottom: 0,
         color: 'black',
         fontFamily: 'Marker Felt',
