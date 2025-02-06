@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 36,
-    marginBottom: 0,
-    marginTop: 65,
+    marginBottom: 5,
+    marginTop: 75,
     color: 'black',
     fontFamily: 'Marker Felt',
     alignSelf: 'center'
@@ -63,8 +63,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 0,
     padding: 15,
     backgroundColor: 'white',
-    marginTop: 0,
-    marginBottom: 10,
+    marginTop: 5,
+    marginBottom: 30,
   },
   
 });
