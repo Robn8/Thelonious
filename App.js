@@ -58,9 +58,9 @@ function App() {
       <Stack.Navigator >
         <Stack.Screen name="Thelonious" component={MainTabs} options={{ headerShown: false }} />
         <Stack.Screen name="ShowKeyScreen" component={ShowKeyScreen} options={{ headerShown: false}} />
-        <Stack.Screen name="Guitar Modes" component={ModesChartScreen} />
-        <Stack.Screen name="Caged Chords" component={CagedScreen} />
-        <Stack.Screen name="ProgScreen" component={ProgScreen} /> 
+        <Stack.Screen name="Guitar Modes" component={ModesChartScreen} options={{ headerShown: false}} />
+        <Stack.Screen name="Caged Chords" component={CagedScreen} options={{ headerShown: false}} />
+        <Stack.Screen name="ProgScreen" component={ProgScreen} options={{ headerShown: false}} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );
