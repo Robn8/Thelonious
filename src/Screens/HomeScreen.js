@@ -1,45 +1,203 @@
-import { Text, View, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 import React from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  SafeAreaView,
+  ScrollView,
+} from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const HomeScreen = ({ navigation }) => {
+  const menuItems = [
+    {
+      title: 'Key Selector',
+      subtitle: 'Explore major keys and chord relationships',
+      icon: 'music-clef-treble',
+      screen: 'Keys',
+      accent: '#4F46E5',
+      accentSoft: '#EEF2FF',
+    },
+    {
+      title: 'Modes Charts',
+      subtitle: 'Browse scales and modal patterns',
+      icon: 'guitar-electric',
+      screen: 'Guitar Modes',
+      accent: '#0F766E',
+      accentSoft: '#CCFBF1',
+    },
+    {
+      title: 'Caged Chords',
+      subtitle: 'Study chord shapes across the neck',
+      icon: 'music-box-multiple',
+      screen: 'Caged Chords',
+      accent: '#DC2626',
+      accentSoft: '#FEE2E2',
+    },
+    {
+      title: 'Chord Progressions',
+      subtitle: 'Practice progressions and harmonic movement',
+      icon: 'piano',
+      screen: 'ProgScreen',
+      accent: '#7C3AED',
+      accentSoft: '#F3E8FF',
+    },
+  ];
 
-    return (
-        
-        <View style={styles.container}>
-            <Text>Thelonious Music Theory App</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Keys')}>
-                <Text style={styles.btnText}>Key Selector</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Guitar Modes')}>
-                <Text style={styles.btnText}>Modes Charts</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Caged Chords')}>
-                <Text style={styles.btnText}>Caged Chords</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('ProgScreen')}>
-                <Text style={styles.btnText}>Chord Progressions</Text>
-            </TouchableOpacity>
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.content}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.heroCard}>
+          <View style={styles.heroBadge}>
+            <MaterialCommunityIcons
+              name="music-note-eighth"
+              size={18}
+              color="#4F46E5"
+            />
+            <Text style={styles.heroBadgeText}>Music Theory</Text>
+          </View>
+
+          <Text style={styles.title}>Thelonious</Text>
+          <Text style={styles.subTitle}>Learn keys, chords, modes, and harmony</Text>
         </View>
-        
-    )
+
+        <Text style={styles.sectionTitle}>Start Exploring</Text>
+
+        {menuItems.map((item) => (
+          <TouchableOpacity
+            key={item.title}
+            style={styles.card}
+            activeOpacity={0.85}
+            onPress={() => navigation.navigate(item.screen)}
+          >
+            <View
+              style={[
+                styles.iconWrap,
+                { backgroundColor: item.accentSoft },
+              ]}
+            >
+              <MaterialCommunityIcons
+                name={item.icon}
+                size={28}
+                color={item.accent}
+              />
+            </View>
+
+            <View style={styles.textWrap}>
+              <Text style={styles.cardTitle}>{item.title}</Text>
+              <Text style={styles.cardSubtitle}>{item.subtitle}</Text>
+            </View>
+
+            <MaterialCommunityIcons
+              name="chevron-right"
+              size={28}
+              color="#9CA3AF"
+            />
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+    </SafeAreaView>
+  );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'white'
-    },
-    btnText: {
-        fontSize: 36,
-        marginBottom: 10,
-        fontFamily: 'Marker Felt'
-    },
-    background: {
-        flex: 1, // Ensure the background image covers the entire screen
-        resizeMode: 'cover', // Ensure the image covers the background
-      },
+  container: {
+    flex: 1,
+    backgroundColor: '#F6F7FB',
+  },
+  content: {
+    padding: 20,
+    paddingBottom: 36,
+  },
+  heroCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 28,
+    paddingVertical: 28,
+    paddingHorizontal: 22,
+    marginBottom: 24,
+    borderWidth: 1,
+    borderColor: '#ECEFF5',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    elevation: 4,
+  },
+  heroBadge: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#EEF2FF',
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+    borderRadius: 999,
+    marginBottom: 18,
+  },
+  heroBadgeText: {
+    marginLeft: 6,
+    color: '#4338CA',
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  title: {
+    fontSize: 40,
+    fontWeight: '800',
+    color: '#111827',
+  },
+  subTitle: {
+    marginTop: 10,
+    fontSize: 17,
+    lineHeight: 24,
+    color: '#6B7280',
+  },
+  sectionTitle: {
+    fontSize: 22,
+    fontWeight: '800',
+    color: '#1F2937',
+    marginBottom: 14,
+    marginLeft: 2,
+  },
+  card: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 22,
+    padding: 18,
+    marginBottom: 14,
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 3,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  iconWrap: {
+    width: 54,
+    height: 54,
+    borderRadius: 18,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 14,
+  },
+  textWrap: {
+    flex: 1,
+  },
+  cardTitle: {
+    fontSize: 19,
+    fontWeight: '800',
+    color: '#111827',
+  },
+  cardSubtitle: {
+    marginTop: 4,
+    fontSize: 14,
+    lineHeight: 20,
+    color: '#6B7280',
+  },
 });
 
 export default HomeScreen;
