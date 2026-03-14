@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import KeyList from '../Components/KeyList';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const SelectScreen = () => {
+const SelectScreen = ({ navigation }) => {
   const [selectedOption, setSelectedOption] = useState('naturals');
 
   const options = [
@@ -14,6 +14,16 @@ const SelectScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.topBar}>
+        <TouchableOpacity
+          style={styles.homeIconButton}
+          onPress={() => navigation.navigate('Home')}
+          activeOpacity={0.8}
+        >
+          <MaterialCommunityIcons name="home-outline" size={24} color="#1F2937" />
+        </TouchableOpacity>
+      </View>
+
       <View style={styles.headerBlock}>
         <Text style={styles.header}>Major Keys</Text>
         <Text style={styles.subHeader}>Choose a category to explore</Text>
@@ -53,9 +63,28 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f7fb',
   },
+  topBar: {
+    paddingHorizontal: 16,
+    paddingTop: 10,
+    marginBottom: 8,
+  },
+  homeIconButton: {
+    width: 46,
+    height: 46,
+    borderRadius: 23,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.05,
+    shadowRadius: 6,
+    elevation: 2,
+  },
   headerBlock: {
     paddingHorizontal: 20,
-    paddingTop: 20,
     paddingBottom: 12,
   },
   header: {
