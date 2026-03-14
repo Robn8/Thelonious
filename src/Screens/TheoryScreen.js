@@ -18,6 +18,7 @@ const TheoryScreen = ({ navigation }) => {
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
       <Text style={styles.title}>{item.title}</Text>
+      <View style={styles.divider} />
       <Text style={styles.description}>{item.description}</Text>
     </View>
   );
@@ -100,10 +101,11 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     width: cardWidth,
-    minHeight: 320,
+    minHeight: 260,
     backgroundColor: '#FFFFFF',
     borderRadius: 24,
-    padding: 20,
+    paddingVertical: 22,
+    paddingHorizontal: 20,
     marginBottom: 16,
     borderWidth: 1,
     borderColor: '#E5E7EB',
@@ -112,21 +114,26 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.06,
     shadowRadius: 8,
     elevation: 3,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'stretch',
   },
   title: {
     fontSize: 22,
     fontWeight: '800',
     color: '#111827',
-    textAlign: 'center',
+    textAlign: 'left',
+    marginBottom: 12,
+  },
+  divider: {
+    height: 1,
+    backgroundColor: '#E5E7EB',
     marginBottom: 14,
   },
   description: {
     fontSize: 16,
-    lineHeight: 24,
+    lineHeight: 26,
     color: '#4B5563',
-    textAlign: 'center',
+    textAlign: 'left',
   },
 });
 
