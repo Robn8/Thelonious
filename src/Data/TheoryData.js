@@ -31,10 +31,7 @@ Perfect Fifth: The perfect fifth is an interval that spans seven half steps (or 
 Putting it all together, a C major triad consists of the notes C, E, and G.
      
 Visually, a major triad can be represented as a triangle, with the root at the bottom, the major third on the left, and the perfect fifth on the right. The combination of these three notes creates a consonant and pleasing sound.
-     
-In music notation, a major triad is typically written with the chord's root note followed by the letter "maj." For example, C major triad is written as "Cmaj."
-     
-Major triads are the basis of many songs and musical compositions in various genres. Understanding and identifying major triads is crucial for musicians, composers, and songwriters as they create harmonies, progressions, and melodies that evoke feelings of happiness and brightness.` },
+`},
     
      { id: '3', title: 'Dominant Chords',
       description: `In music theory, the dominant note refers to the fifth scale degree of a given key or scale. It plays a crucial role in establishing tension and resolving harmony within a piece of music. The dominant note is often denoted by the Roman numeral "V" when analyzing chord progressions.
@@ -47,9 +44,7 @@ Tension and Resolution: The dominant note has a strong pull or tendency to resol
       
 Dominant Chord: The dominant note is also associated with the dominant chord, which is a major chord built on the fifth scale degree of the key. In C major, the dominant chord is G major (G-B-D). The dominant chord is essential in establishing cadences, which are musical phrases that provide a sense of conclusion to a musical phrase or section.
       
-Importance in Chord Progressions: Dominant chords often lead to the tonic chord (the "I" chord) in chord progressions, creating a feeling of resolution and stability. The dominant-tonic relationship is a cornerstone of many chord progressions found in various styles of music.
-      
-Understanding the dominant note and its relationship to the tonic is vital for composers, songwriters, and musicians. Utilizing the tension and resolution created by the dominant note allows them to craft captivating and emotionally engaging musical passages, creating a sense of motion and direction in their compositions.` },
+Importance in Chord Progressions: Dominant chords often lead to the tonic chord (the "I" chord) in chord progressions, creating a feeling of resolution and stability. The dominant-tonic relationship is a cornerstone of many chord progressions found in various styles of music.` },
     
      { id: '4', title: 'Relative Minor',
       description: `In music theory, a relative minor is a concept that relates to major scales. Every major scale has a corresponding relative minor scale that shares the same key signature. The relative minor is found by starting on the sixth scale degree of the major scale.
