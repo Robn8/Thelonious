@@ -15,26 +15,34 @@ const KeyInfoGrid = ({ sharps, flats, title, relative, dom, triad }) => {
       <InfoCard
         label="Accidentals"
         value={accidentalsValue}
-        backgroundColor="#7C2D12"
-        textColor="#FFFFFF"
+        icon="music-note"
+        backgroundColor="#EEF2FF"
+        labelColor="#4338CA"
+        valueColor="#1F2937"
       />
       <InfoCard
         label="Relative Minor"
         value={relative}
-        backgroundColor="#FCD34D"
-        textColor="#7C2D12"
+        icon="music-clef-alto"
+        backgroundColor="#F3F4F6"
+        labelColor="#4B5563"
+        valueColor="#111827"
       />
       <InfoCard
         label="Dominant"
         value={dom}
-        backgroundColor="#4F46E5"
-        textColor="#FFFFFF"
+        icon="star-four-points"
+        backgroundColor="#E0E7FF"
+        labelColor="#3730A3"
+        valueColor="#111827"
       />
       <InfoCard
         label="Major Triad"
         value={triad}
-        backgroundColor="#312E81"
-        textColor="#FFFFFF"
+        icon="triangle-outline"
+        backgroundColor="#F5F3FF"
+        labelColor="#6D28D9"
+        valueColor="#111827"
       />
     </View>
   );

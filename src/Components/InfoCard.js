@@ -1,11 +1,23 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const InfoCard = ({ label, value, backgroundColor, textColor }) => {
+const InfoCard = ({
+  label,
+  value,
+  icon,
+  backgroundColor,
+  labelColor,
+  valueColor,
+}) => {
   return (
     <View style={[styles.card, { backgroundColor }]}>
-      <Text style={[styles.label, { color: textColor }]}>{label}</Text>
-      <Text style={[styles.value, { color: textColor }]}>{value}</Text>
+      <View style={styles.iconWrap}>
+        <MaterialCommunityIcons name={icon} size={24} color={labelColor} />
+      </View>
+
+      <Text style={[styles.label, { color: labelColor }]}>{label}</Text>
+      <Text style={[styles.value, { color: valueColor }]}>{value}</Text>
     </View>
   );
 };
@@ -13,23 +25,34 @@ const InfoCard = ({ label, value, backgroundColor, textColor }) => {
 const styles = StyleSheet.create({
   card: {
     width: '48%',
-    minHeight: 140,
-    borderRadius: 20,
+    minHeight: 155,
+    borderRadius: 22,
     padding: 16,
     marginBottom: 14,
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.08,
-    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
     elevation: 3,
   },
+  iconWrap: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: '#FFFFFFAA',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
   label: {
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: '700',
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 8,
   },
   value: {
     fontSize: 24,

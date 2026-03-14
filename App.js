@@ -57,7 +57,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator >
         <Stack.Screen name="Thelonious" component={MainTabs} options={{ headerShown: false }} />
-        <Stack.Screen name="ShowKeyScreen" component={ShowKeyScreen} />
+        <Stack.Screen name="ShowKeyScreen" component={ShowKeyScreen} options={{ headerShown: false}} />
         <Stack.Screen name="Guitar Modes" component={ModesChartScreen} />
         <Stack.Screen name="Caged Chords" component={CagedScreen} />
         <Stack.Screen name="ProgScreen" component={ProgScreen} /> 
