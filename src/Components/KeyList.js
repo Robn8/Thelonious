@@ -19,7 +19,7 @@ const getDataObject = (selectedOption) => {
   }
 };
 
-const KeyList = ({ selectedOption }) => {
+const KeyList = ({ selectedOption, theme }) => {
   const [data, setData] = useState(() => getDataObject(selectedOption));
   const navigation = useNavigation();
 
@@ -40,7 +40,7 @@ const KeyList = ({ selectedOption }) => {
             activeOpacity={0.85}
             onPress={() => navigation.navigate('ShowKeyScreen', { id: item.id })}
           >
-            <KeyDetails result={item} />
+            <KeyDetails result={item} theme={theme} />
           </TouchableOpacity>
         )}
       />
@@ -58,12 +58,12 @@ const styles = StyleSheet.create({
     paddingBottom: 28,
   },
   card: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FFFFFF',
     borderRadius: 18,
     padding: 16,
     marginBottom: 14,
     borderWidth: 1,
-    borderColor: '#eceff4',
+    borderColor: '#ECEFF4',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.08,

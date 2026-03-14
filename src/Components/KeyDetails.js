@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const KeyDetails = ({ result }) => {
+const KeyDetails = ({ result, theme }) => {
   return (
     <View style={styles.row}>
       <View style={styles.textContainer}>
@@ -10,8 +10,12 @@ const KeyDetails = ({ result }) => {
         <Text style={styles.subtitle}>Tap to explore this key</Text>
       </View>
 
-      <View style={styles.iconBadge}>
-        <MaterialCommunityIcons name="music-clef-treble" size={24} color="#4F46E5" />
+      <View style={[styles.iconBadge, { backgroundColor: theme.accentSoft }]}>
+        <MaterialCommunityIcons
+          name="music-clef-treble"
+          size={24}
+          color={theme.accent}
+        />
       </View>
     </View>
   );
@@ -41,7 +45,6 @@ const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderRadius: 26,
-    backgroundColor: '#EEF2FF',
     justifyContent: 'center',
     alignItems: 'center',
   },

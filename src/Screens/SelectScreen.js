@@ -3,13 +3,53 @@ import React, { useState } from 'react';
 import KeyList from '../Components/KeyList';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+const getOptionTheme = (selectedOption) => {
+  switch (selectedOption) {
+    case 'sharps':
+      return {
+        accent: '#DC2626',
+        accentSoft: '#FEE2E2',
+        accentText: '#B91C1C',
+      };
+    case 'flats':
+      return {
+        accent: '#0F766E',
+        accentSoft: '#CCFBF1',
+        accentText: '#115E59',
+      };
+    case 'naturals':
+    default:
+      return {
+        accent: '#4F46E5',
+        accentSoft: '#EEF2FF',
+        accentText: '#4338CA',
+      };
+  }
+};
+
 const SelectScreen = ({ navigation }) => {
   const [selectedOption, setSelectedOption] = useState('naturals');
+  const theme = getOptionTheme(selectedOption);
 
   const options = [
-    { label: 'Flats', value: 'flats', icon: 'music-accidental-flat' },
-    { label: 'Naturals', value: 'naturals', icon: 'music-accidental-natural' },
-    { label: 'Sharps', value: 'sharps', icon: 'music-accidental-sharp' },
+    {
+      label: 'Flats',
+      value: 'flats',
+      icon: 'music-accidental-flat',
+      color: '#0F766E',
+    },
+    {
+      label: 'Naturals',
+      value: 'naturals',
+      icon: 'music-accidental-natural',
+      color: '#4F46E5',
+    },
+    {
+      label: 'Sharps',
+      value: 'sharps',
+      icon: 'music-accidental-sharp',
+      color: '#DC2626',
+    },
   ];
 
   return (
@@ -36,16 +76,27 @@ const SelectScreen = ({ navigation }) => {
           return (
             <TouchableOpacity
               key={item.value}
-              style={[styles.optionButton, isSelected && styles.optionButtonSelected]}
+              style={[
+                styles.optionButton,
+                isSelected && {
+                  backgroundColor: theme.accent,
+                  borderColor: theme.accent,
+                },
+              ]}
               onPress={() => setSelectedOption(item.value)}
               activeOpacity={0.85}
             >
               <MaterialCommunityIcons
                 name={item.icon}
                 size={28}
-                color={isSelected ? '#fff' : '#2c2c2c'}
+                color={isSelected ? '#FFFFFF' : item.color}
               />
-              <Text style={[styles.optionText, isSelected && styles.optionTextSelected]}>
+              <Text
+                style={[
+                  styles.optionText,
+                  { color: isSelected ? '#FFFFFF' : '#2C2C2C' },
+                ]}
+              >
                 {item.label}
               </Text>
             </TouchableOpacity>
@@ -53,7 +104,7 @@ const SelectScreen = ({ navigation }) => {
         })}
       </View>
 
-      <KeyList selectedOption={selectedOption} />
+      <KeyList selectedOption={selectedOption} theme={theme} />
     </SafeAreaView>
   );
 };
@@ -61,7 +112,7 @@ const SelectScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f7fb',
+    backgroundColor: '#F5F7FB',
   },
   topBar: {
     paddingHorizontal: 16,
@@ -90,13 +141,13 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 34,
     fontWeight: '800',
-    color: '#1c1c1e',
+    color: '#1C1C1E',
     textAlign: 'center',
   },
   subHeader: {
     marginTop: 6,
     fontSize: 15,
-    color: '#6b7280',
+    color: '#6B7280',
     textAlign: 'center',
   },
   optionRow: {
@@ -110,29 +161,21 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     paddingVertical: 14,
     borderRadius: 18,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: '#e5e7eb',
+    borderColor: '#E5E7EB',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.06,
     shadowRadius: 4,
     elevation: 2,
   },
-  optionButtonSelected: {
-    backgroundColor: '#4f46e5',
-    borderColor: '#4f46e5',
-  },
   optionText: {
     marginTop: 6,
     fontSize: 14,
     fontWeight: '600',
-    color: '#2c2c2c',
-  },
-  optionTextSelected: {
-    color: '#ffffff',
   },
 });
 
