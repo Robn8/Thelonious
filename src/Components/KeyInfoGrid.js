@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import InfoCard from './InfoCard';
 
-const KeyInfoGrid = ({ sharps, flats, title, relative, dom, triad }) => {
+const KeyInfoGrid = ({ sharps, flats, title, relative, dom, triad, theme }) => {
   const accidentalsValue =
     title === 'C'
       ? 'None'
@@ -16,33 +16,40 @@ const KeyInfoGrid = ({ sharps, flats, title, relative, dom, triad }) => {
         label="Accidentals"
         value={accidentalsValue}
         icon="music-note"
-        backgroundColor="#EEF2FF"
-        labelColor="#4338CA"
-        valueColor="#1F2937"
+        backgroundColor={theme.accentSoft}
+        labelColor={theme.accentText}
+        valueColor="#111827"
+        iconBackgroundColor="#FFFFFF"
       />
+
       <InfoCard
         label="Relative Minor"
         value={relative}
         icon="music-clef-alto"
-        backgroundColor="#F3F4F6"
-        labelColor="#4B5563"
+        backgroundColor="#FFFFFF"
+        labelColor={theme.accentText}
         valueColor="#111827"
+        iconBackgroundColor={theme.accentSoft}
       />
+
       <InfoCard
         label="Dominant"
         value={dom}
         icon="star-four-points"
-        backgroundColor="#E0E7FF"
-        labelColor="#3730A3"
+        backgroundColor="#FFFFFF"
+        labelColor={theme.accentText}
         valueColor="#111827"
+        iconBackgroundColor={theme.accentSoft}
       />
+
       <InfoCard
         label="Major Triad"
         value={triad}
         icon="triangle-outline"
-        backgroundColor="#F5F3FF"
-        labelColor="#6D28D9"
+        backgroundColor={theme.accentSoft}
+        labelColor={theme.accentText}
         valueColor="#111827"
+        iconBackgroundColor="#FFFFFF"
       />
     </View>
   );

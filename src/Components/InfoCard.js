@@ -9,10 +9,16 @@ const InfoCard = ({
   backgroundColor,
   labelColor,
   valueColor,
+  iconBackgroundColor,
 }) => {
   return (
     <View style={[styles.card, { backgroundColor }]}>
-      <View style={styles.iconWrap}>
+      <View
+        style={[
+          styles.iconWrap,
+          iconBackgroundColor && { backgroundColor: iconBackgroundColor },
+        ]}
+      >
         <MaterialCommunityIcons name={icon} size={24} color={labelColor} />
       </View>
 
@@ -43,7 +49,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: '#FFFFFFAA',
+    backgroundColor: '#F3F4F6',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 12,
@@ -55,7 +61,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   value: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: '800',
     textAlign: 'center',
   },
