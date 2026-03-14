@@ -1,4 +1,4 @@
-import { Text, StyleSheet, FlatList, TouchableOpacity, View, SafeAreaView } from 'react-native';
+import { Text, StyleSheet, TouchableOpacity, View, SafeAreaView } from 'react-native';
 import React, { useState } from 'react';
 import KeyList from '../Components/KeyList';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -14,52 +14,36 @@ const SelectScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.hero}>
+      <View style={styles.headerBlock}>
         <Text style={styles.header}>Major Keys</Text>
         <Text style={styles.subHeader}>Choose a category to explore</Text>
       </View>
 
-      <View style={styles.optionContainer}>
-        <FlatList
-          data={options}
-          keyExtractor={(item) => item.value}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.optionList}
-          renderItem={({ item }) => {
-            const isSelected = selectedOption === item.value;
+      <View style={styles.optionRow}>
+        {options.map((item) => {
+          const isSelected = selectedOption === item.value;
 
-            return (
-              <TouchableOpacity
-                style={[
-                  styles.optionButton,
-                  isSelected && styles.optionButtonSelected,
-                ]}
-                onPress={() => setSelectedOption(item.value)}
-                activeOpacity={0.8}
-              >
-                <MaterialCommunityIcons
-                  name={item.icon}
-                  size={34}
-                  color={isSelected ? '#FFFFFF' : '#2D3142'}
-                />
-                <Text
-                  style={[
-                    styles.optionLabel,
-                    isSelected && styles.optionLabelSelected,
-                  ]}
-                >
-                  {item.label}
-                </Text>
-              </TouchableOpacity>
-            );
-          }}
-        />
+          return (
+            <TouchableOpacity
+              key={item.value}
+              style={[styles.optionButton, isSelected && styles.optionButtonSelected]}
+              onPress={() => setSelectedOption(item.value)}
+              activeOpacity={0.85}
+            >
+              <MaterialCommunityIcons
+                name={item.icon}
+                size={28}
+                color={isSelected ? '#fff' : '#2c2c2c'}
+              />
+              <Text style={[styles.optionText, isSelected && styles.optionTextSelected]}>
+                {item.label}
+              </Text>
+            </TouchableOpacity>
+          );
+        })}
       </View>
 
-      <View style={styles.listWrapper}>
-        <KeyList selectedOption={selectedOption} />
-      </View>
+      <KeyList selectedOption={selectedOption} />
     </SafeAreaView>
   );
 };
@@ -67,67 +51,59 @@ const SelectScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F7F8FC',
+    backgroundColor: '#f5f7fb',
   },
-  hero: {
+  headerBlock: {
+    paddingHorizontal: 20,
     paddingTop: 20,
-    paddingHorizontal: 24,
-    marginBottom: 18,
+    paddingBottom: 12,
   },
   header: {
     fontSize: 34,
     fontWeight: '800',
-    color: '#1B1F2A',
+    color: '#1c1c1e',
     textAlign: 'center',
   },
   subHeader: {
-    fontSize: 16,
-    color: '#6B7280',
+    marginTop: 6,
+    fontSize: 15,
+    color: '#6b7280',
     textAlign: 'center',
-    marginTop: 8,
   },
-  optionContainer: {
+  optionRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
     marginBottom: 12,
   },
-  optionList: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
   optionButton: {
-    width: 120,
-    minHeight: 110,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 20,
-    paddingVertical: 18,
-    paddingHorizontal: 14,
-    marginHorizontal: 8,
-    justifyContent: 'center',
+    flex: 1,
+    marginHorizontal: 5,
+    paddingVertical: 14,
+    borderRadius: 18,
+    backgroundColor: '#ffffff',
     alignItems: 'center',
+    justifyContent: 'center',
     borderWidth: 1,
-    borderColor: '#E5E7EB',
+    borderColor: '#e5e7eb',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.08,
-    shadowRadius: 6,
-    elevation: 3,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 4,
+    elevation: 2,
   },
   optionButtonSelected: {
-    backgroundColor: '#4F46E5',
-    borderColor: '#4F46E5',
-    transform: [{ scale: 1.03 }],
+    backgroundColor: '#4f46e5',
+    borderColor: '#4f46e5',
   },
-  optionLabel: {
-    marginTop: 10,
-    fontSize: 15,
+  optionText: {
+    marginTop: 6,
+    fontSize: 14,
     fontWeight: '600',
-    color: '#2D3142',
+    color: '#2c2c2c',
   },
-  optionLabelSelected: {
-    color: '#FFFFFF',
-  },
-  listWrapper: {
-    flex: 1,
-    marginTop: 8,
+  optionTextSelected: {
+    color: '#ffffff',
   },
 });
 

@@ -1,23 +1,50 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const KeyDetails = ({ result }) => {
-    return (
-        <View>
-            <Text style={styles.letterStyle}>{result.title}</Text>
-        </View>
-    );
+  return (
+    <View style={styles.row}>
+      <View style={styles.textContainer}>
+        <Text style={styles.title}>{result.title}</Text>
+        <Text style={styles.subtitle}>Tap to explore this key</Text>
+      </View>
+
+      <View style={styles.iconBadge}>
+        <MaterialCommunityIcons name="music-clef-treble" size={24} color="#4F46E5" />
+      </View>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-    letterStyle: {
-        fontSize: 54,
-        marginBottom: 0,
-        color: 'black',
-        fontFamily: 'Marker Felt',
-        alignSelf: 'center',
-        marginBottom: 15
-    },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  textContainer: {
+    flex: 1,
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: '700',
+    color: '#111827',
+  },
+  subtitle: {
+    marginTop: 6,
+    fontSize: 14,
+    color: '#6B7280',
+  },
+  iconBadge: {
+    marginLeft: 16,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: '#EEF2FF',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default KeyDetails;
