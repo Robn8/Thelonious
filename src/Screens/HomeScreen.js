@@ -30,7 +30,7 @@ const HomeScreen = ({ navigation }) => {
     },
     {
       title: 'Caged Chords',
-      subtitle: 'Study chord shapes across the neck',
+      subtitle: 'Study chords & shapes',
       icon: 'music-box-multiple',
       screen: 'Caged Chords',
       accent: '#DC2626',
