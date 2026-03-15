@@ -1,6 +1,6 @@
 export const TheoryData = [
     { id: '1', title: 'Diatonic Chords',
-    description: `Diatonic chords are a fundamental concept that helps us understand and analyze the harmony within a musical key. Diatonic chords are built exclusively from the notes of a particular major or minor scale. In a major scale, there are seven unique notes, and each note can form a chord by stacking two or more notes on top of it.These chords are named after the scale degree from which they are constructed. For example, in the key of C major, the C major scale consists of the notes: C, D, E, F, G, A, and B.
+    description: `Diatonic chords are a fundamental concept that helps us understand and analyze the harmony within a musical key. Diatonic chords are built exclusively from the notes of a particular major or minor scale. In a major scale, there are seven unique notes, and each note can form a chord by stacking two or more notes on top of it. These chords are named after the scale degree from which they are constructed. For example, in the key of C major, the C major scale consists of the notes: C, D, E, F, G, A, and B.
 Using these notes, we can build seven diatonic chords:
     
 I (Tonic): The first note of the scale (C in the key of C major) forms the I chord, which is the tonic or the home chord of the key. It's often the most stable and restful chord.

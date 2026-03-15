@@ -38,7 +38,7 @@ const TheoryScreen = ({ navigation }) => {
       <View style={styles.headerBlock}>
         <Text style={styles.header}>Theory Notes</Text>
         <Text style={styles.subHeader}>
-          Review core music theory concepts and explanations
+          Review music theory concepts and explanations
         </Text>
       </View>
 

@@ -80,18 +80,30 @@ const ShowKeyScreen = ({ route }) => {
 
           <Text style={styles.keyStyle}>{item.title}</Text>
 
-          <Text style={styles.body}>Diatonic Chords</Text>
+          <Text style={styles.body}>Scale Notes</Text>
           <Text style={styles.subBody}>of {item.title} Major</Text>
 
           <View
             style={[
-              styles.chordPill,
+              styles.scalePill,
               { backgroundColor: theme.accentSoft, borderColor: theme.accentSoft },
             ]}
           >
-            <Text style={[styles.chordStyle, { color: theme.accent }]}>
-              {item.chords}
+            <Text style={[styles.scalePillTitle, { color: theme.accentText }]}>
+              {item.title} Major Scale
             </Text>
+
+            <View style={styles.scaleNotesWrap}>
+              {item.scaleNotes.map((note) => (
+                <View key={note} style={styles.scaleNoteBadge}>
+                  <Text style={[styles.scaleNoteText, { color: theme.accent }]}>
+                    {note}
+                  </Text>
+                </View>
+              ))}
+            </View>
+
+            
           </View>
         </View>
 
@@ -108,6 +120,19 @@ const ShowKeyScreen = ({ route }) => {
           triad={item.majorTriad}
           theme={theme}
         />
+
+        <TouchableOpacity
+          style={styles.helpCard}
+          activeOpacity={0.85}
+          onPress={() => navigation.navigate('Theory')}
+        >
+          <Text style={styles.helpText}>
+            Need help understanding this diagram?
+          </Text>
+          <Text style={[styles.helpLink, { color: theme.accent }]}>
+            Check out our theory page!
+          </Text>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
@@ -185,7 +210,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#6B7280',
   },
-  chordPill: {
+  scalePill: {
     marginTop: 20,
     width: '100%',
     borderRadius: 18,
@@ -193,16 +218,74 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     borderWidth: 1,
   },
-  chordStyle: {
-    fontSize: 22,
+  scalePillTitle: {
+    fontSize: 18,
     fontWeight: '800',
     textAlign: 'center',
+    marginBottom: 12,
+  },
+  scaleNotesWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+  scaleNoteBadge: {
+    backgroundColor: '#FFFFFFCC',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 999,
+    marginHorizontal: 4,
+    marginVertical: 4,
+  },
+  scaleNoteText: {
+    fontSize: 15,
+    fontWeight: '800',
+  },
+  chordsLabel: {
+    marginTop: 14,
+    fontSize: 14,
+    fontWeight: '700',
+    color: '#6B7280',
+    textAlign: 'center',
+  },
+  chordsInline: {
+    marginTop: 6,
+    fontSize: 15,
+    color: '#374151',
+    textAlign: 'center',
+    lineHeight: 22,
   },
   sectionTitle: {
     fontSize: 22,
     fontWeight: '800',
     marginBottom: 14,
     marginLeft: 2,
+  },
+  helpCard: {
+    marginTop: 6,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 20,
+    paddingVertical: 18,
+    paddingHorizontal: 18,
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  helpText: {
+    fontSize: 15,
+    lineHeight: 22,
+    color: '#4B5563',
+    textAlign: 'center',
+  },
+  helpLink: {
+    marginTop: 8,
+    fontSize: 15,
+    fontWeight: '800',
+    textAlign: 'center',
   },
   errorText: {
     fontSize: 22,
