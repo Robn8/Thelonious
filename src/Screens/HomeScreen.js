@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
   ScrollView,
+  ImageBackground,
 } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -51,19 +52,28 @@ const HomeScreen = ({ navigation }) => {
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
       >
-        <View style={styles.heroCard}>
-          <View style={styles.heroBadge}>
-            <MaterialCommunityIcons
-              name="music-note-eighth"
-              size={18}
-              color="#4F46E5"
-            />
-            <Text style={styles.heroBadgeText}>Music Theory</Text>
-          </View>
+        <ImageBackground
+          source={require('../../assets/p5.jpg')}
+          style={styles.heroCard}
+          imageStyle={styles.heroImage}
+          resizeMode="cover"
+        >
+          <View style={styles.heroOverlay}>
+            <View style={styles.heroBadge}>
+              <MaterialCommunityIcons
+                name="music-note-eighth"
+                size={18}
+                color="#FFFFFF"
+              />
+              <Text style={styles.heroBadgeText}>Music Theory</Text>
+            </View>
 
-          <Text style={styles.title}>Thelonious</Text>
-          <Text style={styles.subTitle}>Learn keys, chords, modes, and harmony</Text>
-        </View>
+            <Text style={styles.title}>Thelonious</Text>
+            <Text style={styles.subTitle}>
+              Learn keys, chords, modes, and harmony
+            </Text>
+          </View>
+        </ImageBackground>
 
         <Text style={styles.sectionTitle}>Start Exploring</Text>
 
@@ -114,24 +124,29 @@ const styles = StyleSheet.create({
     paddingBottom: 36,
   },
   heroCard: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 28,
-    paddingVertical: 28,
-    paddingHorizontal: 22,
     marginBottom: 24,
-    borderWidth: 1,
-    borderColor: '#ECEFF5',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.08,
     shadowRadius: 10,
     elevation: 4,
   },
+  heroImage: {
+    borderRadius: 28,
+  },
+  heroOverlay: {
+    borderRadius: 28,
+    paddingVertical: 28,
+    paddingHorizontal: 22,
+    borderWidth: 1,
+    borderColor: '#ECEFF5',
+    backgroundColor: 'rgba(0,0,0,0.30)',
+  },
   heroBadge: {
     alignSelf: 'flex-start',
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#EEF2FF',
+    backgroundColor: 'rgba(255,255,255,0.2)',
     paddingVertical: 8,
     paddingHorizontal: 14,
     borderRadius: 999,
@@ -139,20 +154,20 @@ const styles = StyleSheet.create({
   },
   heroBadgeText: {
     marginLeft: 6,
-    color: '#4338CA',
+    color: '#FFFFFF',
     fontSize: 14,
     fontWeight: '700',
   },
   title: {
     fontSize: 40,
     fontWeight: '800',
-    color: '#111827',
+    color: '#FFFFFF',
   },
   subTitle: {
     marginTop: 10,
     fontSize: 17,
     lineHeight: 24,
-    color: '#6B7280',
+    color: '#F3F4F6',
   },
   sectionTitle: {
     fontSize: 22,
