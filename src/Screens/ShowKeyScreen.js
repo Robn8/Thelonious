@@ -12,19 +12,21 @@ import KeyInfoGrid from '../Components/KeyInfoGrid';
 const allKeys = [...KeyData, ...SharpData, ...FlatData];
 
 const getKeyTheme = (item) => {
-  if (item.id >= 1 && item.id <= 7) {
+  if (Number(item.id) >= 1 && Number(item.id) <= 7) {
     return {
       accent: '#4F46E5',
       accentSoft: '#EEF2FF',
       accentText: '#4338CA',
+      badgeLabel: 'Natural Major',
     };
   }
 
-  if (item.id >= 8 && item.id <= 14) {
+  if (Number(item.id) >= 8 && Number(item.id) <= 14) {
     return {
       accent: '#DC2626',
       accentSoft: '#FEE2E2',
       accentText: '#B91C1C',
+      badgeLabel: 'Sharp Major',
     };
   }
 
@@ -32,6 +34,7 @@ const getKeyTheme = (item) => {
     accent: '#0F766E',
     accentSoft: '#CCFBF1',
     accentText: '#115E59',
+    badgeLabel: 'Flat Major',
   };
 };
 
@@ -57,13 +60,19 @@ const ShowKeyScreen = ({ route }) => {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.topBar}>
-          <TouchableOpacity
-            style={styles.backIconButton}
-            onPress={() => navigation.goBack()}
-            activeOpacity={0.8}
-          >
-            <MaterialCommunityIcons name="chevron-left" size={28} color="#1F2937" />
-          </TouchableOpacity>
+        <TouchableOpacity
+          style={[
+            styles.backIconButton,
+            {
+              borderColor: theme.accentSoft,
+              backgroundColor: theme.accentSoft,
+            },
+          ]}
+          onPress={() => navigation.goBack()}
+          activeOpacity={0.8}
+          > 
+          <MaterialCommunityIcons name="chevron-left" size={28} color={theme.accent} />
+        </TouchableOpacity>
         </View>
 
         <View style={styles.heroCard}>
@@ -74,7 +83,7 @@ const ShowKeyScreen = ({ route }) => {
               color={theme.accent}
             />
             <Text style={[styles.badgeText, { color: theme.accentText }]}>
-              Major Key
+              {theme.badgeLabel}
             </Text>
           </View>
 
@@ -93,6 +102,16 @@ const ShowKeyScreen = ({ route }) => {
               {item.title} Major Scale
             </Text>
 
+            <View style={styles.degreesRow}>
+              {['1', '2', '3', '4', '5', '6', '7'].map((degree) => (
+                <View key={degree} style={styles.degreeItem}>
+                  <Text style={[styles.degreeText, { color: theme.accentText }]}>
+                    {degree}
+                  </Text>
+                </View>
+              ))}
+            </View>
+
             <View style={styles.scaleNotesWrap}>
               {item.scaleNotes.map((note) => (
                 <View key={note} style={styles.scaleNoteBadge}>
@@ -102,10 +121,10 @@ const ShowKeyScreen = ({ route }) => {
                 </View>
               ))}
             </View>
-
-            
           </View>
         </View>
+
+        <View style={styles.sectionDivider} />
 
         <Text style={[styles.sectionTitle, { color: theme.accentText }]}>
           Key Details
@@ -152,27 +171,26 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   backIconButton: {
-    width: 46,
-    height: 46,
-    borderRadius: 23,
-    backgroundColor: '#FFFFFF',
-    borderWidth: 1,
-    borderColor: '#E5E7EB',
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.05,
-    shadowRadius: 6,
-    elevation: 2,
-  },
+  width: 46,
+  height: 46,
+  borderRadius: 23,
+  backgroundColor: '#FFFFFF',
+  borderWidth: 1.5,
+  justifyContent: 'center',
+  alignItems: 'center',
+  shadowColor: '#000',
+  shadowOffset: { width: 0, height: 3 },
+  shadowOpacity: 0.05,
+  shadowRadius: 6,
+  elevation: 2,
+},
   heroCard: {
     backgroundColor: '#FFFFFF',
     borderRadius: 28,
     paddingVertical: 28,
     paddingHorizontal: 22,
     alignItems: 'center',
-    marginBottom: 22,
+    marginBottom: 18,
     borderWidth: 1,
     borderColor: '#ECEFF5',
     shadowColor: '#000',
@@ -195,20 +213,22 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   keyStyle: {
-    fontSize: 58,
+    fontSize: 52,
     fontWeight: '800',
     color: '#111827',
+    textAlign: 'center',
   },
   body: {
     marginTop: 10,
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: '700',
     color: '#1F2937',
   },
   subBody: {
     marginTop: 4,
-    fontSize: 18,
+    fontSize: 17,
     color: '#6B7280',
+    textAlign: 'center',
   },
   scalePill: {
     marginTop: 20,
@@ -224,36 +244,43 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 12,
   },
+  degreesRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+    paddingHorizontal: 4,
+  },
+  degreeItem: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  degreeText: {
+    fontSize: 12,
+    fontWeight: '700',
+  },
   scaleNotesWrap: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    gap: 6,
   },
   scaleNoteBadge: {
+    flex: 1,
     backgroundColor: '#FFFFFFCC',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 6,
     borderRadius: 999,
-    marginHorizontal: 4,
-    marginVertical: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   scaleNoteText: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '800',
   },
-  chordsLabel: {
-    marginTop: 14,
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#6B7280',
-    textAlign: 'center',
-  },
-  chordsInline: {
-    marginTop: 6,
-    fontSize: 15,
-    color: '#374151',
-    textAlign: 'center',
-    lineHeight: 22,
+  sectionDivider: {
+    height: 1,
+    backgroundColor: '#E5E7EB',
+    marginBottom: 16,
+    marginHorizontal: 4,
   },
   sectionTitle: {
     fontSize: 22,

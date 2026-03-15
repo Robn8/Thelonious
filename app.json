@@ -1,27 +1,42 @@
 {
   "expo": {
     "name": "Thelonious",
-    "slug": "Thelonious",
+    "slug": "thelonious",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/clef4.png",
     "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#ffffff",
+          "image": "./assets/clef1.png",
+          "imageWidth": 200
+        }
+      ]
+    ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.robnatale.thelonious",
+      "buildNumber": "1",
+      "supportsTablet": false,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/clef4.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/clef4.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c7f2adea-0d2f-4b44-94ff-07fd3433eea3"
+      }
     }
   }
 }

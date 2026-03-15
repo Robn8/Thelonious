@@ -24,7 +24,7 @@ export const KeyData = [
   {
     id: '3',
     title: 'C',
-    chords: 'C  |  Dm  |  Em  |  F  |  G  |  Am  |  B~dim',
+    chords: 'C  |  Dm  |  Em  |  F  |  G  |  Am  |  B',
     sharps: 'None',
     flats: 'None',
     relativeMinor: 'Am',
