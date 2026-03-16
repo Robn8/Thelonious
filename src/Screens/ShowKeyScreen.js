@@ -8,6 +8,7 @@ import { KeyData } from '../Data/KeyData.js';
 import { SharpData } from '../Data/SharpData';
 import { FlatData } from '../Data/FlatData';
 import KeyInfoGrid from '../Components/KeyInfoGrid';
+import DiatonicChordsSection from '../Components/DiatonicChordsSection.js';
 
 const allKeys = [...KeyData, ...SharpData, ...FlatData];
 
@@ -125,6 +126,8 @@ const ShowKeyScreen = ({ route }) => {
         </View>
 
         <View style={styles.sectionDivider} />
+
+        <DiatonicChordsSection chords={item.chords} theme={theme} />
 
         <Text style={[styles.sectionTitle, { color: theme.accentText }]}>
           Key Details
