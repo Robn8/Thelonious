@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, StyleSheet, ScrollView, View, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, ScrollView, View, TouchableOpacity, LayoutAnimation, Platform, UIManager } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -8,6 +8,10 @@ import { KeyData } from '../Data/KeyData.js';
 import { SharpData } from '../Data/SharpData';
 import { FlatData } from '../Data/FlatData';
 import KeyInfoGrid from '../Components/KeyInfoGrid';
+
+if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
 
 const allKeys = [...KeyData, ...SharpData, ...FlatData];
 
@@ -141,7 +145,10 @@ const ShowKeyScreen = ({ route }) => {
               styles.expandRow,
               { backgroundColor: '#FFFFFF', borderColor: theme.accentSoft },
             ]}
-            onPress={() => setShowDiatonicChords(!showDiatonicChords)}
+            onPress={() => {
+              LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+              setShowDiatonicChords(!showDiatonicChords);
+            }}
           >
             <View style={styles.expandTextWrap}>
               <Text style={[styles.expandTitle, { color: theme.accentText }]}>
