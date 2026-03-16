@@ -7,7 +7,7 @@ const KeyDetails = ({ result, theme }) => {
     <View style={styles.row}>
       <View style={styles.textContainer}>
         <Text style={styles.title}>{result.title}</Text>
-        <Text style={styles.subtitle}>Tap to explore this key</Text>
+        <Text style={styles.subtitle}>Learn about {result.title} major</Text>
       </View>
 
       <View style={[styles.iconBadge, { backgroundColor: theme.accentSoft }]}>

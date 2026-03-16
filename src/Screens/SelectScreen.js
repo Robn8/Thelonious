@@ -66,7 +66,7 @@ const SelectScreen = ({ navigation }) => {
 
       <View style={styles.headerBlock}>
         <Text style={styles.header}>Major Keys</Text>
-        <Text style={styles.subHeader}>Choose a category to explore</Text>
+        <Text style={styles.subHeader}>Tap a Key to explore</Text>
       </View>
 
       <View style={styles.optionRow}>
