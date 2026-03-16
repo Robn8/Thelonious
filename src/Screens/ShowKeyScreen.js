@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, StyleSheet, ScrollView, View, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -8,9 +8,17 @@ import { KeyData } from '../Data/KeyData.js';
 import { SharpData } from '../Data/SharpData';
 import { FlatData } from '../Data/FlatData';
 import KeyInfoGrid from '../Components/KeyInfoGrid';
-import DiatonicChordsSection from '../Components/DiatonicChordsSection.js';
 
 const allKeys = [...KeyData, ...SharpData, ...FlatData];
+
+const romanNumerals = ['I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii'];
+
+const getChordQuality = (chord) => {
+  if (!chord) return 'major';
+  if (chord.includes('dim') || chord.includes('~')) return 'diminished';
+  if (chord.includes('m')) return 'minor';
+  return 'major';
+};
 
 const getKeyTheme = (item) => {
   if (Number(item.id) >= 1 && Number(item.id) <= 7) {
@@ -42,6 +50,8 @@ const getKeyTheme = (item) => {
 const ShowKeyScreen = ({ route }) => {
   const { id } = route.params;
   const navigation = useNavigation();
+  const [showDiatonicChords, setShowDiatonicChords] = useState(false);
+
   const item = allKeys.find((entry) => entry.id === id);
 
   if (!item) {
@@ -53,6 +63,7 @@ const ShowKeyScreen = ({ route }) => {
   }
 
   const theme = getKeyTheme(item);
+  const chordList = item.chords.split('|').map((chord) => chord.trim());
 
   return (
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.container}>
@@ -61,19 +72,19 @@ const ShowKeyScreen = ({ route }) => {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.topBar}>
-        <TouchableOpacity
-          style={[
-            styles.backIconButton,
-            {
-              borderColor: theme.accentSoft,
-              backgroundColor: theme.accentSoft,
-            },
-          ]}
-          onPress={() => navigation.goBack()}
-          activeOpacity={0.8}
-          > 
-          <MaterialCommunityIcons name="chevron-left" size={28} color={theme.accent} />
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.backIconButton,
+              {
+                borderColor: theme.accentSoft,
+                backgroundColor: theme.accentSoft,
+              },
+            ]}
+            onPress={() => navigation.goBack()}
+            activeOpacity={0.8}
+          >
+            <MaterialCommunityIcons name="chevron-left" size={28} color={theme.accent} />
+          </TouchableOpacity>
         </View>
 
         <View style={styles.heroCard}>
@@ -123,11 +134,76 @@ const ShowKeyScreen = ({ route }) => {
               ))}
             </View>
           </View>
+
+          <TouchableOpacity
+            activeOpacity={0.85}
+            style={[
+              styles.expandRow,
+              { backgroundColor: '#FFFFFF', borderColor: theme.accentSoft },
+            ]}
+            onPress={() => setShowDiatonicChords(!showDiatonicChords)}
+          >
+            <View style={styles.expandTextWrap}>
+              <Text style={[styles.expandTitle, { color: theme.accentText }]}>
+                Diatonic Chords
+              </Text>
+              <Text style={styles.expandSubtitle}>
+                Chords built from this major key
+              </Text>
+            </View>
+
+            <View style={[styles.expandIconWrap, { backgroundColor: theme.accentSoft }]}>
+              <MaterialCommunityIcons
+                name={showDiatonicChords ? 'chevron-up' : 'chevron-down'}
+                size={22}
+                color={theme.accent}
+              />
+            </View>
+          </TouchableOpacity>
+
+          {showDiatonicChords && (
+            <View style={styles.diatonicGrid}>
+              {chordList.map((chord, index) => {
+                const quality = getChordQuality(chord);
+
+                const cardStyle =
+                  quality === 'major'
+                    ? {
+                        backgroundColor: theme.accentSoft,
+                        borderColor: theme.accentSoft,
+                      }
+                    : quality === 'minor'
+                    ? {
+                        backgroundColor: '#FFFFFF',
+                        borderColor: theme.accentSoft,
+                      }
+                    : {
+                        backgroundColor: '#F3F4F6',
+                        borderColor: '#E5E7EB',
+                      };
+
+                const numeralColor =
+                  quality === 'diminished' ? '#6B7280' : theme.accentText;
+
+                const chordColor =
+                  quality === 'diminished' ? '#374151' : '#111827';
+
+                return (
+                  <View key={`${chord}-${index}`} style={[styles.diatonicCard, cardStyle]}>
+                    <Text style={[styles.numeral, { color: numeralColor }]}>
+                      {romanNumerals[index]}
+                    </Text>
+                    <Text style={[styles.chordText, { color: chordColor }]}>
+                      {chord}
+                    </Text>
+                  </View>
+                );
+              })}
+            </View>
+          )}
         </View>
 
         <View style={styles.sectionDivider} />
-
-        <DiatonicChordsSection chords={item.chords} theme={theme} />
 
         <Text style={[styles.sectionTitle, { color: theme.accentText }]}>
           Key Details
@@ -174,19 +250,18 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   backIconButton: {
-  width: 46,
-  height: 46,
-  borderRadius: 23,
-  backgroundColor: '#FFFFFF',
-  borderWidth: 1.5,
-  justifyContent: 'center',
-  alignItems: 'center',
-  shadowColor: '#000',
-  shadowOffset: { width: 0, height: 3 },
-  shadowOpacity: 0.05,
-  shadowRadius: 6,
-  elevation: 2,
-},
+    width: 46,
+    height: 46,
+    borderRadius: 23,
+    borderWidth: 1.5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.05,
+    shadowRadius: 6,
+    elevation: 2,
+  },
   heroCard: {
     backgroundColor: '#FFFFFF',
     borderRadius: 28,
@@ -278,6 +353,65 @@ const styles = StyleSheet.create({
   scaleNoteText: {
     fontSize: 14,
     fontWeight: '800',
+  },
+  expandRow: {
+    width: '100%',
+    marginTop: 16,
+    borderRadius: 18,
+    borderWidth: 1,
+    paddingVertical: 14,
+    paddingHorizontal: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  expandTextWrap: {
+    flex: 1,
+    paddingRight: 12,
+  },
+  expandTitle: {
+    fontSize: 18,
+    fontWeight: '800',
+    marginBottom: 4,
+  },
+  expandSubtitle: {
+    fontSize: 14,
+    color: '#6B7280',
+  },
+  expandIconWrap: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  diatonicGrid: {
+    width: '100%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    marginTop: 16,
+  },
+  diatonicCard: {
+    width: '29%',
+    minHeight: 88,
+    borderRadius: 18,
+    paddingVertical: 14,
+    paddingHorizontal: 10,
+    marginBottom: 12,
+    borderWidth: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  numeral: {
+    fontSize: 13,
+    fontWeight: '700',
+    marginBottom: 8,
+  },
+  chordText: {
+    fontSize: 18,
+    fontWeight: '800',
+    textAlign: 'center',
   },
   sectionDivider: {
     height: 1,

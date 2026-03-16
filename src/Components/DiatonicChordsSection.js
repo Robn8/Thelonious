@@ -1,67 +1,93 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const romanNumerals = ['I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii'];
 
 const getChordQuality = (chord) => {
   if (!chord) return 'major';
 
-  if (chord.includes('m')) return 'minor';
   if (chord.includes('dim') || chord.includes('~')) return 'diminished';
+  if (chord.includes('m')) return 'minor';
 
   return 'major';
 };
 
 const DiatonicChordsSection = ({ chords, theme }) => {
+  const [expanded, setExpanded] = useState(false);
+
   const chordList = chords.split('|').map((chord) => chord.trim());
 
   return (
     <View style={styles.section}>
-      <Text style={[styles.sectionTitle, { color: theme.accentText }]}>
-        Diatonic Chords
-      </Text>
-      <Text style={styles.sectionSubtitle}>
-        Chords built from this major key
-      </Text>
+      <TouchableOpacity
+        activeOpacity={0.85}
+        style={styles.headerRow}
+        onPress={() => setExpanded(!expanded)}
+      >
+        <View style={styles.headerTextWrap}>
+          <Text style={[styles.sectionTitle, { color: theme.accentText }]}>
+            Diatonic Chords
+          </Text>
+          <Text style={styles.sectionSubtitle}>
+            Chords built from this major key
+          </Text>
+        </View>
 
-      <View style={styles.grid}>
-        {chordList.map((chord, index) => {
-          const quality = getChordQuality(chord);
+        <View
+          style={[
+            styles.iconWrap,
+            { backgroundColor: theme.accentSoft },
+          ]}
+        >
+          <MaterialCommunityIcons
+            name={expanded ? 'chevron-up' : 'chevron-down'}
+            size={24}
+            color={theme.accent}
+          />
+        </View>
+      </TouchableOpacity>
 
-          const cardStyle =
-            quality === 'major'
-              ? {
-                  backgroundColor: theme.accentSoft,
-                  borderColor: theme.accentSoft,
-                }
-              : quality === 'minor'
-              ? {
-                  backgroundColor: '#FFFFFF',
-                  borderColor: theme.accentSoft,
-                }
-              : {
-                  backgroundColor: '#F3F4F6',
-                  borderColor: '#E5E7EB',
-                };
+      {expanded && (
+        <View style={styles.grid}>
+          {chordList.map((chord, index) => {
+            const quality = getChordQuality(chord);
 
-          const numeralColor =
-            quality === 'diminished' ? '#6B7280' : theme.accentText;
+            const cardStyle =
+              quality === 'major'
+                ? {
+                    backgroundColor: theme.accentSoft,
+                    borderColor: theme.accentSoft,
+                  }
+                : quality === 'minor'
+                ? {
+                    backgroundColor: '#FFFFFF',
+                    borderColor: theme.accentSoft,
+                  }
+                : {
+                    backgroundColor: '#F3F4F6',
+                    borderColor: '#E5E7EB',
+                  };
 
-          const chordColor =
-            quality === 'diminished' ? '#374151' : '#111827';
+            const numeralColor =
+              quality === 'diminished' ? '#6B7280' : theme.accentText;
 
-          return (
-            <View key={`${chord}-${index}`} style={[styles.card, cardStyle]}>
-              <Text style={[styles.numeral, { color: numeralColor }]}>
-                {romanNumerals[index]}
-              </Text>
-              <Text style={[styles.chordText, { color: chordColor }]}>
-                {chord}
-              </Text>
-            </View>
-          );
-        })}
-      </View>
+            const chordColor =
+              quality === 'diminished' ? '#374151' : '#111827';
+
+            return (
+              <View key={`${chord}-${index}`} style={[styles.card, cardStyle]}>
+                <Text style={[styles.numeral, { color: numeralColor }]}>
+                  {romanNumerals[index]}
+                </Text>
+                <Text style={[styles.chordText, { color: chordColor }]}>
+                  {chord}
+                </Text>
+              </View>
+            );
+          })}
+        </View>
+      )}
     </View>
   );
 };
@@ -71,7 +97,7 @@ const styles = StyleSheet.create({
     marginBottom: 18,
     backgroundColor: '#FFFFFF',
     borderRadius: 22,
-    paddingVertical: 20,
+    paddingVertical: 18,
     paddingHorizontal: 18,
     borderWidth: 1,
     borderColor: '#E5E7EB',
@@ -81,20 +107,36 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 2,
   },
+  headerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  headerTextWrap: {
+    flex: 1,
+    paddingRight: 12,
+  },
   sectionTitle: {
     fontSize: 20,
     fontWeight: '800',
-    marginBottom: 6,
+    marginBottom: 4,
   },
   sectionSubtitle: {
     fontSize: 14,
     color: '#6B7280',
-    marginBottom: 16,
+  },
+  iconWrap: {
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
+    marginTop: 18,
   },
   card: {
     width: '29%',
