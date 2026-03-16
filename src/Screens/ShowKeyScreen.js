@@ -147,7 +147,7 @@ const ShowKeyScreen = ({ route }) => {
             ]}
             onPress={() => {
               LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-              setShowDiatonicChords(!showDiatonicChords);
+              setShowDiatonicChords((prev) => !prev);
             }}
           >
             <View style={styles.expandTextWrap}>

@@ -1,5 +1,5 @@
 export const ProgData = [
-    {id: '1', title: 'Happy Chord Progressions', description:
+    {id: '1', title: 'Major Chord Progressions', description:
 `I - IV - V - I
      This is one of the most common and cheerful chord progressions. In C major, it consists of the chords C, F, G, and back to C.
 
@@ -14,9 +14,9 @@ I - IV - vi - V
     
 I - IV - I - V
     This shorter progression is repetitive and catchy, often found in many happy and upbeat tunes. In C major, it consists of the chords C, F, C, and G.`},
-    {id: '2', title: 'Sad Chord Progressions', description:
+    {id: '2', title: 'Minor Chord Progressions', description:
 `i - iv - v - i
-This is a common sad progression that emphasizes the minor tonality. In C minor, it consists of the chords Cm, Fm, Gm, and back to Cm.
+This is a common chord progression that emphasizes the minor tonality. In C minor, it consists of the chords Cm, Fm, Gm, and back to Cm.
 
 i - VI - VII - i
 Also known as the Aeolian progression, this sequence creates a melancholic atmosphere. In C minor, it consists of the chords Cm, Ab, Bb, and back to Cm.
@@ -25,7 +25,7 @@ i - iv - VI - V
 This progression incorporates the major VI chord, providing a mix of sorrow and hope. In C minor, it consists of the chords Cm, Fm, Ab, and G.
     
 i - VI - III - VII 
-This unique progression moves through the minor and major chords, adding an emotional journey. In C minor, it consists of the chords Cm, Ab, Eb, and Bb.
+This unique progression moves through the minor and major chords. In C minor, it consists of the chords Cm, Ab, Eb, and Bb.
     
 i - VII - VI - v 
 This progression features a descending pattern that contributes to the sad mood. In C minor, it consists of the chords Cm, Bb, Ab, and Gm.`}
