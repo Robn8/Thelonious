@@ -19,7 +19,21 @@ const TheoryScreen = ({ navigation }) => {
     <View style={styles.itemContainer}>
       <Text style={styles.title}>{item.title}</Text>
       <View style={styles.divider} />
-      <Text style={styles.description}>{item.description}</Text>
+
+      <Text style={styles.intro}>{item.intro}</Text>
+
+      {item.sections.map((section, sectionIndex) => (
+        <View key={sectionIndex} style={styles.sectionBlock}>
+          <Text style={styles.sectionHeading}>{section.heading}</Text>
+
+          {section.paragraphs.map((paragraph, paragraphIndex) => (
+            <Text key={paragraphIndex} style={styles.description}>
+              <Text style={styles.boldLead}>{paragraph.lead} </Text>
+              {paragraph.text}
+            </Text>
+          ))}
+        </View>
+      ))}
     </View>
   );
 
@@ -129,10 +143,31 @@ const styles = StyleSheet.create({
     backgroundColor: '#E5E7EB',
     marginBottom: 14,
   },
+  intro: {
+    fontSize: 16,
+    lineHeight: 26,
+    color: '#374151',
+    marginBottom: 18,
+    textAlign: 'left',
+  },
+  sectionBlock: {
+    marginBottom: 18,
+  },
+  sectionHeading: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: '#111827',
+    marginBottom: 10,
+  },
+  boldLead: {
+    fontWeight: '800',
+    color: '#111827',
+  },
   description: {
     fontSize: 16,
     lineHeight: 26,
     color: '#4B5563',
+    marginBottom: 12,
     textAlign: 'left',
   },
 });

@@ -1,65 +1,186 @@
 export const TheoryData = [
-    { id: '1', title: 'Diatonic Chords',
-    description: `Diatonic chords are a fundamental concept that helps us understand and analyze the harmony within a musical key. Diatonic chords are built exclusively from the notes of a particular major or minor scale. In a major scale, there are seven unique notes, and each note can form a chord by stacking two or more notes on top of it. These chords are named after the scale degree from which they are constructed. For example, in the key of C major, the C major scale consists of the notes: C, D, E, F, G, A, and B.
-Using these notes, we can build seven diatonic chords:
-    
-I (Tonic): The first note of the scale (C in the key of C major) forms the I chord, which is the tonic or the home chord of the key. It's often the most stable and restful chord.
-
-ii (Supertonic): The second note (D in the key of C major) forms the ii chord, known as the supertonic. It's a chord with a sense of motion, often leading to the dominant (V) chord.
-
-iii (Mediant): The third note (E in the key of C major) forms the iii chord, known as the mediant. It has a somewhat neutral and smooth character.
-
-IV (Subdominant): The fourth note (F in the key of C major) forms the IV chord, known as the subdominant. It provides a sense of departure from the tonic and often creates a gentle contrast.
-
-V (Dominant): The fifth note (G in the key of C major) forms the V chord, known as the dominant. It's a powerful and tension-building chord that often leads back to the tonic (I) chord.
-
-vi (Submediant): The sixth note (A in the key of C major) forms the vi chord, known as the submediant. It has a pleasing and comforting quality.
-
-vii° (Leading Tone): The seventh note (B in the key of C major) forms the vii° chord, known as the leading tone or diminished chord. It creates a strong pull back to the tonic (I) chord.` },
-    
-{ id: '2', title: 'Major Triads',
-     description: `In music theory, a major triad is a fundamental and widely used chord consisting of three notes. These notes are the root, the major third, and the perfect fifth of a major scale. Major triads have a bright and uplifting sound, making them an essential building block in creating happy and optimistic melodies and harmonies.
-
-Let's break down the components of a major triad:
-     
-Root: The root is the foundational note of the chord. It gives the chord its name and establishes its tonal center. For example, in a C major triad, the root is C.
-     
-Major Third: The major third is an interval that spans four half steps (or two whole steps) above the root. It contributes to the chord's major quality. In a C major triad, the major third is E.
-     
-Perfect Fifth: The perfect fifth is an interval that spans seven half steps (or three and a half whole steps) above the root. It adds stability and balance to the chord. In a C major triad, the perfect fifth is G.
-     
-Putting it all together, a C major triad consists of the notes C, E, and G.
-     
-Visually, a major triad can be represented as a triangle, with the root at the bottom, the major third on the left, and the perfect fifth on the right. The combination of these three notes creates a consonant and pleasing sound.
-`},
-    
-     { id: '3', title: 'Dominant Chords',
-      description: `In music theory, the dominant note refers to the fifth scale degree of a given key or scale. It plays a crucial role in establishing tension and resolving harmony within a piece of music. The dominant note is often denoted by the Roman numeral "V" when analyzing chord progressions.
-
-Here's a breakdown of the dominant note:
-      
-Fifth Scale Degree: In a major or minor scale, the dominant note is the note that is five scale degrees above the tonic (the first note of the scale). For example, in the key of C major, the dominant note is G, as it is the fifth note (C-D-E-F-G) of the C major scale.
-      
-Tension and Resolution: The dominant note has a strong pull or tendency to resolve back to the tonic note. This phenomenon is known as "tonic-dominant relationship" and is a fundamental aspect of Western music harmony. The dominant creates a sense of tension and anticipation, which is resolved when it moves back to the tonic.
-      
-Dominant Chord: The dominant note is also associated with the dominant chord, which is a major chord built on the fifth scale degree of the key. In C major, the dominant chord is G major (G-B-D). The dominant chord is essential in establishing cadences, which are musical phrases that provide a sense of conclusion to a musical phrase or section.
-      
-Importance in Chord Progressions: Dominant chords often lead to the tonic chord (the "I" chord) in chord progressions, creating a feeling of resolution and stability. The dominant-tonic relationship is a cornerstone of many chord progressions found in various styles of music.` },
-    
-     { id: '4', title: 'Relative Minor',
-      description: `In music theory, a relative minor is a concept that relates to major scales. Every major scale has a corresponding relative minor scale that shares the same key signature. The relative minor is found by starting on the sixth scale degree of the major scale.
-
-Here's a breakdown of the relative minor:
-      
-Finding the Relative Minor: To find the relative minor of a major scale, you can count six notes up from the tonic (the first note) of the major scale. For example, in the key of C major, the sixth note is A, so A minor is the relative minor of C major.
-      
-Shared Key Signature: The major scale and its relative minor have the same key signature, meaning they use the same sharps or flats. For instance, C major has no sharps or flats, and its relative minor, A minor, also has no sharps or flats.
-      
-Emotional Contrast: Relative minors provide an emotional contrast to their corresponding major keys. Major keys often have a bright and happy quality, while their relative minors tend to have a more subdued, melancholic, or introspective feel.
-      
-Chord Progressions: The relative minor is frequently used in chord progressions. It can be used to add emotional depth and variety to a piece of music. For example, a song in C major might transition to the relative minor, A minor, for a more contemplative or emotional section before returning to the major key.
-      
-Parallel Major and Minor: It's important to differentiate between relative minor and parallel minor. A parallel minor shares the same tonic as the major key but has a different key signature. For example, the parallel minor of C major is C minor, which has three flats (Bb, Eb, Ab).
-      
-Understanding relative minors is valuable in music composition, improvisation, and analysis. It allows musicians to explore the emotional range of a key and create more nuanced and expressive musical compositions.` },
-  ];
+     {
+       id: '1',
+       title: 'Diatonic Chords',
+       intro:
+         'Diatonic chords are the chords that naturally belong to a key. They are built only from the notes of that key’s scale, which makes them one of the most important tools for understanding harmony.',
+       sections: [
+         {
+           heading: 'How diatonic chords are built',
+           paragraphs: [
+             {
+               lead: 'Diatonic chords are built exclusively from the notes of a major or minor scale.',
+               text: 'In a major scale, there are seven unique notes, and each note can be used as the starting point for a chord.',
+             },
+             {
+               lead: 'Each chord is named after its scale degree.',
+               text: 'In the key of C major, the scale consists of C, D, E, F, G, A, and B. Starting on each of these notes gives us the seven diatonic chords of the key.',
+             },
+           ],
+         },
+         {
+           heading: 'Diatonic chords in C major',
+           paragraphs: [
+             {
+               lead: 'I (Tonic):',
+               text: 'The chord built on C is the tonic chord. It feels the most stable and restful, and it gives the key its sense of home.',
+             },
+             {
+               lead: 'ii (Supertonic):',
+               text: 'The chord built on D often feels like it wants to move forward, especially toward the dominant chord.',
+             },
+             {
+               lead: 'iii (Mediant):',
+               text: 'The chord built on E has a smooth and neutral character and can connect other chords gently.',
+             },
+             {
+               lead: 'IV (Subdominant):',
+               text: 'The chord built on F creates a sense of departure from the tonic and adds contrast.',
+             },
+             {
+               lead: 'V (Dominant):',
+               text: 'The chord built on G creates tension and strongly wants to resolve back to the tonic.',
+             },
+             {
+               lead: 'vi (Submediant):',
+               text: 'The chord built on A often sounds warm and reflective, and it is closely related to the relative minor.',
+             },
+             {
+               lead: 'vii° (Leading Tone):',
+               text: 'The chord built on B has a strong pull back to the tonic because of its unstable sound.',
+             },
+           ],
+         },
+       ],
+     },
+     {
+       id: '2',
+       title: 'Major Triads',
+       intro:
+         'A major triad is one of the most common chords in music. It has a bright, stable sound and is built from three notes: the root, the major third, and the perfect fifth.',
+       sections: [
+         {
+           heading: 'The three notes in a major triad',
+           paragraphs: [
+             {
+               lead: 'Root:',
+               text: 'The root is the note that gives the chord its name and acts as its foundation. In a C major triad, the root is C.',
+             },
+             {
+               lead: 'Major Third:',
+               text: 'The major third is four half steps above the root. It gives the chord its bright major quality. In C major, that note is E.',
+             },
+             {
+               lead: 'Perfect Fifth:',
+               text: 'The perfect fifth is seven half steps above the root. It adds balance and stability. In C major, that note is G.',
+             },
+           ],
+         },
+         {
+           heading: 'Putting the triad together',
+           paragraphs: [
+             {
+               lead: 'A C major triad contains three notes:',
+               text: 'C, E, and G.',
+             },
+             {
+               lead: 'Major triads sound bright and complete.',
+               text: 'Because of that, they are used constantly in melodies, harmonies, and chord progressions.',
+             },
+             {
+               lead: 'Visually, the chord can be thought of as stacked thirds.',
+               text: 'This makes it easier to see how chords are built from intervals rather than just memorized shapes.',
+             },
+           ],
+         },
+       ],
+     },
+     {
+       id: '3',
+       title: 'Dominant Chords',
+       intro:
+         'The dominant is the fifth degree of a scale, and it plays a major role in creating tension and release in music. It is commonly labeled with the Roman numeral V.',
+       sections: [
+         {
+           heading: 'Dominant harmony',
+           paragraphs: [
+             {
+               lead: 'The dominant is the fifth scale degree.',
+               text: 'In the key of C major, the fifth note is G, so G is the dominant note.',
+             },
+             {
+               lead: 'The dominant creates tension.',
+               text: 'It naturally wants to resolve back to the tonic, which is what gives many progressions their sense of motion.',
+             },
+             {
+               lead: 'This relationship is called tonic–dominant motion.',
+               text: 'It is one of the most important ideas in Western harmony.',
+             },
+           ],
+         },
+         {
+           heading: 'Dominant chords',
+           paragraphs: [
+             {
+               lead: 'The dominant chord is built on the fifth degree of the scale.',
+               text: 'In C major, that chord is G major: G, B, and D.',
+             },
+             {
+               lead: 'Dominant chords often lead back to the tonic.',
+               text: 'That is why progressions like V–I feel so complete and satisfying.',
+             },
+             {
+               lead: 'Dominant harmony is essential in cadences.',
+               text: 'Cadences use the pull of the dominant to create a feeling of closure at the end of a phrase or section.',
+             },
+           ],
+         },
+       ],
+     },
+     {
+       id: '4',
+       title: 'Relative Minor',
+       intro:
+         'Every major key has a relative minor. The relative minor uses the same key signature as its major key, but begins on the sixth degree of the major scale.',
+       sections: [
+         {
+           heading: 'How to find the relative minor',
+           paragraphs: [
+             {
+               lead: 'The relative minor begins on the sixth note of the major scale.',
+               text: 'In C major, the scale is C, D, E, F, G, A, B, so the sixth note is A. That makes A minor the relative minor of C major.',
+             },
+             {
+               lead: 'An ascending C major scale looks like this:',
+               text: 'C, D, E, F, G, A, B.',
+             },
+             {
+               lead: 'C major and A minor share the same key signature.',
+               text: 'Neither key uses sharps or flats, even though they create different moods.',
+             },
+           ],
+         },
+         {
+           heading: 'How relative minor is used',
+           paragraphs: [
+             {
+               lead: 'Relative minors provide emotional contrast.',
+               text: 'Major keys often sound bright and open, while their relative minors sound darker, softer, or more introspective.',
+             },
+             {
+               lead: 'They are useful in chord progressions.',
+               text: 'A song in a major key can move into its relative minor to create more emotional depth before returning to the major key.',
+             },
+             {
+               lead: 'Relative minor is different from parallel minor.',
+               text: 'A parallel minor shares the same tonic as the major key, while a relative minor shares the same key signature.',
+             },
+             {
+               lead: 'Understanding relative minor expands your harmonic choices.',
+               text: 'It helps with songwriting, improvisation, and analyzing how music changes mood within the same set of notes.',
+             },
+           ],
+         },
+       ],
+     },
+   ];
