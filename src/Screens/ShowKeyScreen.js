@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { Text, StyleSheet, ScrollView, View, TouchableOpacity, LayoutAnimation, Platform, UIManager } from 'react-native';
+import {
+  Text,
+  StyleSheet,
+  ScrollView,
+  View,
+  TouchableOpacity,
+  LayoutAnimation,
+  Platform,
+  UIManager,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -131,11 +140,12 @@ const ShowKeyScreen = ({ route }) => {
             <View style={styles.scaleNotesWrap}>
               {item.scaleNotes.map((note) => (
                 <View key={note} style={styles.scaleNoteBadge}>
-                  <Text 
+                  <Text
                     numberOfLines={1}
                     adjustsFontSizeToFit
                     minimumFontScale={0.8}
-                    style={[styles.scaleNoteText, { color: theme.accent }]}>
+                    style={[styles.scaleNoteText, { color: theme.accent }]}
+                  >
                     {note}
                   </Text>
                 </View>
@@ -205,11 +215,12 @@ const ShowKeyScreen = ({ route }) => {
                     <Text style={[styles.numeral, { color: numeralColor }]}>
                       {romanNumerals[index]}
                     </Text>
-                    <Text 
+                    <Text
                       numberOfLines={1}
                       adjustsFontSizeToFit
                       minimumFontScale={0.75}
-                      style={[styles.chordText, { color: chordColor }]}>
+                      style={[styles.chordText, { color: chordColor }]}
+                    >
                       {displayChord}
                     </Text>
                   </View>
@@ -218,6 +229,44 @@ const ShowKeyScreen = ({ route }) => {
             </View>
           )}
         </View>
+
+        <View style={styles.legendCard}>
+        <Text style={[styles.legendTitle, { color: theme.accentText }]}>
+          Chord Symbols
+        </Text>
+
+        <View style={styles.legendRow}>
+          <View style={styles.legendItem}>
+            <Text style={[styles.legendSymbol, { color: theme.accent }]}>m</Text>
+            <Text style={styles.legendText}>Minor</Text>
+          </View>
+
+          <View style={styles.legendItem}>
+            <Text style={[styles.legendSymbol, { color: theme.accent }]}>#</Text>
+            <Text style={styles.legendText}>Sharp</Text>
+          </View>
+
+          <View style={styles.legendItem}>
+            <Text style={[styles.legendSymbol, { color: theme.accent }]}>b</Text>
+            <Text style={styles.legendText}>Flat</Text>
+          </View>
+
+          <View style={styles.legendItem}>
+            <Text style={[styles.legendSymbol, { color: theme.accent }]}>x</Text>
+            <Text style={styles.legendText}>Double Sharp</Text>
+          </View>
+
+          <View style={styles.legendItem}>
+            <Text style={[styles.legendSymbol, { color: theme.accent }]}>bb</Text>
+            <Text style={styles.legendText}>Double Flat</Text>
+          </View>
+
+          <View style={styles.legendItem}>
+            <Text style={[styles.legendSymbol, { color: theme.accent }]}>°</Text>
+            <Text style={styles.legendText}>Diminished</Text>
+          </View>
+        </View>
+      </View>
 
         <View style={styles.sectionDivider} />
 
@@ -430,6 +479,42 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     textAlign: 'center',
     includeFontPadding: false,
+  },
+  legendCard: {
+    marginBottom: 18,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 18,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+  },
+  legendTitle: {
+    fontSize: 14,
+    fontWeight: '800',
+    marginBottom: 12,
+  },
+  legendRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  legendItem: {
+    width: '31%',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  legendSymbol: {
+    fontSize: 18,
+    fontWeight: '800',
+    marginBottom: 4,
+    textAlign: 'center',
+  },
+  legendText: {
+    fontSize: 12,
+    color: '#6B7280',
+    textAlign: 'center',
+    lineHeight: 16,
   },
   sectionDivider: {
     height: 1,
