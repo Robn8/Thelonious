@@ -1,29 +1,38 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, LayoutAnimation, Platform, UIManager } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
 
 const romanNumerals = ['I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii'];
 
 const getChordQuality = (chord) => {
   if (!chord) return 'major';
-
   if (chord.includes('dim') || chord.includes('~')) return 'diminished';
   if (chord.includes('m')) return 'minor';
-
   return 'major';
 };
 
 const DiatonicChordsSection = ({ chords, theme }) => {
   const [expanded, setExpanded] = useState(false);
-
   const chordList = chords.split('|').map((chord) => chord.trim());
+
+  const handleToggle = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setExpanded((prev) => !prev);
+  };
 
   return (
     <View style={styles.section}>
       <TouchableOpacity
         activeOpacity={0.85}
-        style={styles.headerRow}
-        onPress={() => setExpanded(!expanded)}
+        style={[
+          styles.headerRow,
+          { borderColor: theme.accentSoft },
+        ]}
+        onPress={handleToggle}
       >
         <View style={styles.headerTextWrap}>
           <Text style={[styles.sectionTitle, { color: theme.accentText }]}>
@@ -34,12 +43,7 @@ const DiatonicChordsSection = ({ chords, theme }) => {
           </Text>
         </View>
 
-        <View
-          style={[
-            styles.iconWrap,
-            { backgroundColor: theme.accentSoft },
-          ]}
-        >
+        <View style={[styles.iconWrap, { backgroundColor: theme.accentSoft }]}>
           <MaterialCommunityIcons
             name={expanded ? 'chevron-up' : 'chevron-down'}
             size={24}
@@ -52,6 +56,7 @@ const DiatonicChordsSection = ({ chords, theme }) => {
         <View style={styles.grid}>
           {chordList.map((chord, index) => {
             const quality = getChordQuality(chord);
+            const displayChord = chord.replace('~dim', '°').replace('dim', '°');
 
             const cardStyle =
               quality === 'major'
@@ -80,8 +85,14 @@ const DiatonicChordsSection = ({ chords, theme }) => {
                 <Text style={[styles.numeral, { color: numeralColor }]}>
                   {romanNumerals[index]}
                 </Text>
-                <Text style={[styles.chordText, { color: chordColor }]}>
-                  {chord}
+
+                <Text
+                  numberOfLines={1}
+                  adjustsFontSizeToFit
+                  minimumFontScale={0.75}
+                  style={[styles.chordText, { color: chordColor }]}
+                >
+                  {displayChord}
                 </Text>
               </View>
             );
@@ -111,6 +122,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    borderWidth: 1,
+    borderRadius: 18,
+    paddingVertical: 14,
+    paddingHorizontal: 14,
   },
   headerTextWrap: {
     flex: 1,
@@ -158,6 +173,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '800',
     textAlign: 'center',
+    includeFontPadding: false,
   },
 });
 

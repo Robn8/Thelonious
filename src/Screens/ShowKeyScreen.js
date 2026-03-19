@@ -131,7 +131,11 @@ const ShowKeyScreen = ({ route }) => {
             <View style={styles.scaleNotesWrap}>
               {item.scaleNotes.map((note) => (
                 <View key={note} style={styles.scaleNoteBadge}>
-                  <Text style={[styles.scaleNoteText, { color: theme.accent }]}>
+                  <Text 
+                    numberOfLines={1}
+                    adjustsFontSizeToFit
+                    minimumFontScale={0.8}
+                    style={[styles.scaleNoteText, { color: theme.accent }]}>
                     {note}
                   </Text>
                 </View>
@@ -172,6 +176,7 @@ const ShowKeyScreen = ({ route }) => {
             <View style={styles.diatonicGrid}>
               {chordList.map((chord, index) => {
                 const quality = getChordQuality(chord);
+                const displayChord = chord.replace('~dim', '°').replace('dim', '°');
 
                 const cardStyle =
                   quality === 'major'
@@ -200,8 +205,12 @@ const ShowKeyScreen = ({ route }) => {
                     <Text style={[styles.numeral, { color: numeralColor }]}>
                       {romanNumerals[index]}
                     </Text>
-                    <Text style={[styles.chordText, { color: chordColor }]}>
-                      {chord}
+                    <Text 
+                      numberOfLines={1}
+                      adjustsFontSizeToFit
+                      minimumFontScale={0.75}
+                      style={[styles.chordText, { color: chordColor }]}>
+                      {displayChord}
                     </Text>
                   </View>
                 );
@@ -346,20 +355,21 @@ const styles = StyleSheet.create({
   scaleNotesWrap: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: 6,
+    alignItems: 'center',
   },
   scaleNoteBadge: {
-    flex: 1,
+    width: '13%',
+    height: 44,
     backgroundColor: '#FFFFFFCC',
-    paddingVertical: 10,
-    paddingHorizontal: 6,
     borderRadius: 999,
     alignItems: 'center',
     justifyContent: 'center',
   },
   scaleNoteText: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '800',
+    textAlign: 'center',
+    includeFontPadding: false,
   },
   expandRow: {
     width: '100%',
@@ -419,6 +429,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '800',
     textAlign: 'center',
+    includeFontPadding: false,
   },
   sectionDivider: {
     height: 1,

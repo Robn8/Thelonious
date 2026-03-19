@@ -14,24 +14,57 @@ import { ProgData } from '../Data/ProgData';
 const { width } = Dimensions.get('window');
 const cardWidth = width - 32;
 
+const getProgressionTheme = (title) => {
+  if (title.toLowerCase().includes('minor')) {
+    return {
+      pillBackground: '#CCFBF1',
+      pillText: '#115E59',
+      titleColor: '#115E59',
+    };
+  }
+
+  return {
+    pillBackground: '#EEF2FF',
+    pillText: '#4338CA',
+    titleColor: '#4338CA',
+  };
+};
+
 const ProgScreen = ({ navigation }) => {
-  const renderItem = ({ item }) => (
-    <View style={styles.itemContainer}>
-      <Text style={styles.title}>{item.title}</Text>
-      <View style={styles.divider} />
+  const renderItem = ({ item }) => {
+    const theme = getProgressionTheme(item.title);
 
-      <Text style={styles.intro}>{item.intro}</Text>
+    return (
+      <View style={styles.itemContainer}>
+        <Text style={[styles.title, { color: theme.titleColor }]}>{item.title}</Text>
+        <View style={[styles.divider, {backgroundColor: theme.titleColor + '33' }]} />
 
-      {item.sections.map((section, index) => (
-        <View key={index} style={styles.sectionBlock}>
-          <View style={styles.progressionPill}>
-            <Text style={styles.progressionText}>{section.progression}</Text>
+        <Text style={styles.intro}>{item.intro}</Text>
+
+        {item.sections.map((section, index) => (
+          <View key={index} style={styles.sectionBlock}>
+            <View
+              style={[
+                styles.progressionPill,
+                { backgroundColor: theme.pillBackground },
+              ]}
+            >
+              <Text
+                style={[
+                  styles.progressionText,
+                  { color: theme.pillText },
+                ]}
+              >
+                {section.progression}
+              </Text>
+            </View>
+
+            <Text style={styles.description}>{section.explanation}</Text>
           </View>
-          <Text style={styles.description}>{section.explanation}</Text>
-        </View>
-      ))}
-    </View>
-  );
+        ))}
+      </View>
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -48,7 +81,7 @@ const ProgScreen = ({ navigation }) => {
       <View style={styles.headerBlock}>
         <Text style={styles.header}>Chord Progressions</Text>
         <Text style={styles.subHeader}>
-          Explore common harmonic movement and songwriting ideas
+          Explore harmonic movement and songwriting ideas
         </Text>
       </View>
 
@@ -130,13 +163,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: '800',
-    color: '#111827',
     textAlign: 'left',
     marginBottom: 12,
   },
   divider: {
     height: 1,
-    backgroundColor: '#E5E7EB',
     marginBottom: 14,
   },
   intro: {
@@ -151,7 +182,6 @@ const styles = StyleSheet.create({
   },
   progressionPill: {
     alignSelf: 'flex-start',
-    backgroundColor: '#EEF2FF',
     paddingVertical: 8,
     paddingHorizontal: 14,
     borderRadius: 999,
@@ -160,7 +190,6 @@ const styles = StyleSheet.create({
   progressionText: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#4338CA',
   },
   description: {
     fontSize: 16,
